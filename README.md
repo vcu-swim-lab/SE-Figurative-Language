@@ -26,7 +26,8 @@ The project includes the following files and folders:
 
 
 ## Running Experiments
-# Running RQ2 scipt: 
+
+### Running RQ2 scipt: 
 `python run.py datapath model type`
 here, datapath = `dataset/annotated-dataset.csv`
 model = `bert-base-uncased` or `roberta-base` or `jeniya/BERTOverflow`
