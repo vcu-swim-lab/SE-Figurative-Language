@@ -15,4 +15,14 @@ The project includes the following files and folders:
  - __/annotation instructions__: A folder that contains the annotation related instructions.
     - Instructions for Annotation.pdf: contains the annotation instructions for metaphors and idioms verification and EMS constructions.
     - Instructions for Annotation (Different).pdf: contains the annotation instructions for DMS constructions.
+ - __/RQ2__: A folder that contains the scripts regarding RQ2.
+ - __/RQ3__: A folder that contains the scripts regarding RQ3.
+ - requriments.txt: contains the The python libraries used in this experiment.
 
+
+## Setup
+1. setup virtual environment and activate it
+2. `pip install -r requirements.txt'
+
+
+## Running Experiments
