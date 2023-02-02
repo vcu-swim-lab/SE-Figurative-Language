@@ -29,6 +29,32 @@ The project includes the following files and folders:
 
 ### Running RQ2 scipt: 
 `python run.py datapath model type`
-here, datapath = `dataset/annotated-dataset.csv`
+
+Here, datapath = `dataset/annotated-dataset.csv`
 model = `bert-base-uncased` or `roberta-base` or `jeniya/BERTOverflow`
 type = `SE` or `General` or `any`
+
+
+### Running RQ3 scipts: 
+First, you need to run `contrastive_learning.py` for fine-tuning using contrastive learning and save the fine-tined model. The command is:
+
+`python contrastive_learning.py datapath model model_savepath`
+
+Here, datapath = `dataset/annotated-dataset.csv`
+model = `bert-base-uncased` or `roberta-base` or `jeniya/BERTOverflow`
+model_savepath = `saved model file name`
+
+Then, you can run `finetune_llm.py` with or without loading the saved fine-tuned contrastive model. The command when running with/without contrastive learning model:
+`python finetune_llm.py col model constrastive_flag constrastive_path data_type`
+
+Here, col = `Anger` or `Joy` or, `Fear` or `Love` or `Sadness` or `Surprise` when data_type = `emotion`
+
+col = `Positive` or `Negative` or, `Neutral` when data_type = `sentiment`
+
+col = `Positive` or `Negative` or, `Neutral` or `Uncivil` when data_type = `civility`
+
+constrastive_flag = `1` when you want to load the saved fine-tuned contrastived model, otherwise `0`
+
+constrastive_path = `saved file path name` or empty string ("") based on constrastive_flag value.
+
+
