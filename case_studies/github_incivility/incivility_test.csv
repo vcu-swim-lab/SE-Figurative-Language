@@ -1,0 +1,1227 @@
+,comment_id,comment_body,comment_code
+0,270920940,"Another vote for WC on .net core. I have an entire infrastructure that is being converted to netstandard and core however we are currently deliberating what to do about not having WCF available. WCF for us means that developers can easily consume a complex api with almost no knowledge of it. Without WCF we will either have to abandon a lot of the plans or suffer a decrease in productivity.  :-(
+",civil
+1,87328,"The removal of the santa hat, and kowtowing to a fake user, is incredibly offensive to me. Please reinstate the santa hat icon.
+
+",civil
+2,3915,"<!--
+🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨
+
+I ACKNOWLEDGE THE FOLLOWING BEFORE PROCEEDING:
+1. If I delete this entire template and go my own path, the core team may close my issue without further explanation or engagement.
+2. If I list multiple bugs/concerns in this one issue, the core team may close my issue without further explanation or engagement.
+3. If I write an issue that has many duplicates, the core team may close my issue without further explanation or engagement (and without necessarily spending time to find the exact duplicate ID number).
+4. If I leave the title incomplete when filing the issue, the core team may close my issue without further explanation or engagement.
+5. If I file something completely blank in the body, the core team may close my issue without further explanation or engagement.
+
+All good? Then proceed!
+-->
+On several occasions I've experienced that when I leave my computer for a while and come back, all my terminal windows are gone.
+After some investigation I've reached the conclusion that this happens because the app was installed through the Microsoft store, and just received an update.
+
+This is probably fine for your average note taking app or Candy Crush game, but for a terminal with several tabs open that do actual work (and perhaps even long-running (like several days) processes open in remote SSH sessions) this is completely unacceptable.
+
+Is there a way to avoid the terminal being restarted after receiving an update through the Store? A notification would be fine to let me know that I should restart it on the earliest convenient moment, but having it just disappear can in the worst case scenario cost me days of work that will need to be restarted, and in the best case some inconvenience and a few minutes to get back to where I was before...
+
+Luckily a workaround exists: disable apps auto-updating (https://support.microsoft.com/en-us/help/15081/windows-turn-on-automatic-app-updates), but is there really no better way of handling this?
+<!--
+This bug tracker is monitored by Windows Terminal development team and other technical folks.
+
+**Important: When reporting BSODs or security issues, DO NOT attach memory dumps, logs, or traces to Github issues**.
+Instead, send dumps/traces to secure@microsoft.com, referencing this GitHub issue.
+
+If this is an application crash, please also provide a Feedback Hub submission link so we can find your diagnostic data on the backend. Use the category ""Apps > Windows Terminal (Preview)"" and choose ""Share My Feedback"" after submission to get the link.
+
+Please use this form and describe your issue, concisely but precisely, with as much detail as possible.
+
+-->
+
+# Environment
+
+```none
+Windows build number: [Version 10.0.18362.418]
+Windows Terminal version (if applicable): 0.7.3382.0
+```
+
+# Steps to reproduce
+
+Do normal everyday work in terminal, wait for an update to arrive.
+
+# Expected behavior
+
+A notification to restart the app at my earliest convenience, or that the app continues to run with the old version, and that all new instances are started as the new version (like in Linux, where executables linger on in RAM until closed regardless of whether the file they started from still exist).
+Or at the very least that it would notify me that new updates were available, but not install them.
+
+# Actual behavior
+
+Terminal windows suddenly disappear with no explanation whatsoever, before I open the Store app and see that it was just now updated...
+
+Sorry if this issue seems a bit salty, but it's really annoying - right up there with getting to the office in the morning to continue where you left off yesterday, only to find out that the PC rebooted automatically to install Windows updates (hint: not cool).
+
+",civil
+3,386622387,"build in support for content blocks and components
+",civil
+4,483870981,"I think you have a legitimate concern and I'm sorry if you feel like I'm ignoring you.
+
+We really just want to do what it is users want.
+
+Of course there's time constraints on all of the work we do.
+
+So trying to meet user's expectations while also actually shipping stuff is what we attempt to do.
+",civil
+5,382991086,"And @bitcrazed, thank you, and Microsoft, for making it so easy to both gather and look at perf recordings. It is a game changer for me!
+",civil
+6,565350275,"+1 I just lost hours worth of state because of this behavior.
+",civil
+7,817176043,"@aduh95 I will happily stop. Thank you for acknowledging what my point really is. It was frustrating to see my point be misinterpreted as something else.
+
+It's also been frustrating to be treated as a troll when I was called entitled but responded with a compliment. Only I have been asked to stop, because apparently the decision on this issue has already been made and further input is unwanted.
+
+I'll end by saying that making future decisions based on trust is a mistake. The current maintainers of Yarn might not be the future maintainers of Yarn. Like all projects, maintainers come and go. Future maintainers might have different opinions. Node should make a decision today on what it values and I would hope that ecosystem compatibility, compatibility with the `node` cli, and performance of `node` cli are high on that list. Deferring to future maintainers of other projects won't end well.
+
+Best wishes, ✌️
+",civil
+8,631057380,"> @mirkobrombin projects do have value based on the value that they provide. The most notable measure of that is the community around that project. You might not like hearing it but MauiKit doesn't seem to have a community. It looks like a side project. I asked before `Can you name 10 large companies that have adopted it?` and you didn't or couldn't.
+>
+> MauiKit whether you want to hear it or not has no fundamentals of what I as an Open Source Author and Maintainer would consider signs of a healthy project. I do not see a community around that project at all. I do not see adoption within the enterprise. What I do see is a bunch of people who want to complain but probably never have used Xamarin and probably never will use Maui regardless of what it's called.
+
+It continues to not be an applausible reason to claim that Microsoft deserves that name compared to other projects that have adopted it before in the exact same context.
+
+It is not about image, size or who adopted the technology but who first applied that name in that context.We are talking about open source projects, there should be a common philosophy, not a competition for those who have the biggest issue counter.
+",civil
+9,359033481,"I know this conversation is old and yes it was getting quite hot, But i will like to drop a few lines to what i consider is happening here.
+
+Flutter is NEW. Its a completely NEW way to do things. Yes, it did borrow from the react paradigm. But doesn't mean it needs to follow its same steps. I don't think its the flutter's team objective to attract developers from react native to come to flutter, its only to build something new that developers might find interest in. Google uses it internally before sharing it with the world and they have been productive with it. I share the comments with @Hixie that its not any different from JSX to build the UI. Yes its a little more verbose to right pure dart. But it actually makes debugging your code a lot easier.
+
+The reason why im against a markup language or JSX or anything that sits on top of a technology is that it require tons more work from the platform. You can be happy composing Markup language for a UI, but you will have so many developers working on the platform crying and pulling hairs out to make it work for you. Another point of view is that JSX Worked for a Javascript community, Where as always its main objective is to make things easier for the developer and not worry about the tradeoffs. Don't get me wrong React(JSX) for web was a match made in heaven because HTML Is markup anyway. But for React Native look at all the code in the repository they had to do to make it work. Adding JSX to flutter would require tons of work and 2 things to think of when adding new features. And again just to be able to remove the child parameter and the const and new Keywords?. I prefer knowing what is really happening in the code and have control over what is happening than have magical Syntax that all its doing is add overhead.
+
+Well that is my opinion. Don't want to start a new gigantic discussion. Just to mention the fact that JSX Is awesome for a react/javascript community because it worked for them, but for Dart/flutter i  find it a bit overkill to add JSX Just to attract developers from React Native.
+
+Wow, could have written a blog post xD
+",civil
+10,461622656,"Never thought I would merge this myself, thanks a lot Bootstrap community ❤️
+",civil
+11,567433703,"Don't you understand? It makes me feel anxious all the time. If you don't do it I'll feel sad and disappointed.
+",civil
+12,698,"Dont work with fb abd google 👎👎👎
+
+",civil
+13,554589930,"I've fixed the typo; I'm sorry for any distress this experience has caused you.
+",civil
+14,518276471,"> Is there someone I should be @-ing from the react team to get some 👀 on this? Seems to be quite a lot of interest, but not a single issue on this topic has received a comment from a maintainer in 5 months. Maybe they would have dropped in to tell us it won't be accepted and not to waste any effort on it?
+
+Just wanted to chime in and say I strongly feel the same way - it would be at least good to get a ""hey we won't be considering this"".
+",civil
+15,433659194,"im really feeling stupid for not being able to figure this one out :(
+",civil
+16,523968973,"First off, I love standard and use it in all my JS projects. Thank you so much for your hard work in making a fantastic, easy-to-use, and solid linter.
+
+I was really taken off guard seeing this in my terminal today. It's the last place I expect to see an ad, and really the last place I want to. While I get the idea behind it, and I agree that we must think of innovative ways to support open-source, relying on displaying an ad in a place that typically doesn't have them opens up the doors to new behavior of ad spamming when I simply want to install a dependency.
+
+I'm not saying this is the case here, but let's say that this really frustrates a percentage of developers and they decide to no longer use the project/tool/library, but the project does see an uptick in sponsorship. More than likely they'd see that as a win, and this could slowly shift the focus from a community-driven project to a sponsorship-driven project (and not as in individual sponsors, but company sponsorship). Again, I'm not saying this is the case here, but you can sort of see how that could happen if this becomes a normal practice in how we try to support open-source projects.
+
+I'd much rather see an innovative solution that tries to encourage individual community members to give more to projects they want to support rather than relying on sponsorship ads.
+
+Finally, I also agree with @mhogerheijde, when I first saw this I was confused, and my initial thought was to immediately find the package and to remove it since it wasn't clear at all where this was coming from or why an ad was in my terminal.
+
+EDIT: spelling
+
+
+",civil
+17,385857693,"I would like to see the tags of collections included in site.tags. Thanks!
+",civil
+18,362932079,"> Your packages are too big if that is the case. Embrace the patterns of the npm ecosystem.
+
+Based on what you can say that?
+
+```js
+// factory1.js
+
+export const perform = () => {
+return 'factory1'
+}
+```
+
+```js
+// factory2.js
+
+export const perform = () => {
+return 'factory2'
+}
+```
+
+```js
+// pkg.main: main.js
+
+export * from './factory1'
+export * from './factory2'
+```
+
+because you can't do the previous example you will end up requiring specific file
+
+```js
+// somefile.js
+
+import * as Something from 'libname/factory2'
+
+console.log(
+Something.perform()
+)
+```
+
+So, based on what you can assume that you are right saying that the package is too big?
+
+What will be your argument that I have to pay attention to re-exporting on the main file?
+
+Well, I wouldn't re-export anything if that is your case, the whole point of having files that behave as a module scope in NodeJS.
+
+Could you show me how to resolve this issue please?
+
+Also, I am trying to prevent to add `libnam/lib/factory2` so it is a flat package.
+",civil
+19,728294594,"@333fred It is very disappointed ... ((((((((((((
+I've started thinking that Microsoft consider community opinion ... I am very disappointed ((((((((((((((((((
+",civil
+20,430587200,"Sorry if I sounded harsh, that wasn't my intent.
+
+We've drawn a clear line between what goes in Gatling OSS and what goes in Gatling FrontLine:
+all new things related to stats/exports/integrations go into Gatling FrontLine.
+
+We're more than happy with contributions related to core Gatling features such as HTTP and users orchestration. But we can't make any exception to the above rule.
+",civil
+21,689229194,"First of all, I appreciate that you're trying to help.  However, I do feel firmly that this functionality should be in the standard library, since it is in almost every other language, and it is in POSIX.  I don't want to carry a lot of platform-specific code in a program because it's difficult to maintain and test, especially when I don't typically develop on Windows.
+
+If Go is known to have known defects on Windows, those should be promptly fixed or clearly documented.  For many purposes, it's fine if code doesn't run or run well on Windows, but there are some cases where it does.  The documentation should clearly and prominently list any limitations with using Go on Windows so that folks can make an informed decision.  Last I checked, the `filepath` documentation didn't indicate such limitations, and hasn't for some time.
+
+Normally, when I find a bug or missing feature, I would send a patch to implement that functionality.  However, Go has a CLA, and I don't sign CLAs, so any patch I might submit wouldn't be accepted.  If that changes, I'm happy to send a patch to implement this properly if nobody gets to it before me.
+",civil
+22,817243094,"I don’t think this achieves the goal of improving the experience for beginners, it just makes it confusing (“why are there two package managers that are compatible with one another?”)
+
+It also makes node.js look confused: why should a distribution ship with two COMPETING package managers?
+",civil
+23,600512665,"Thanks! This is failing with the following stack trace (if you check the checkbox next to ""Common Language Runtime Exceptions"" in the Visual Studio's Exception window:
+
+```
+System.Private.CoreLib.dll!System.Reflection.Emit.TypeBuilder.GetMethod(System.Type type, System.Reflection.MethodInfo method) Line 11	C#
+MessagePack.dll!MessagePack.Internal.DynamicAssembly.DynamicAssembly(string moduleName)	Unknown
+MessagePack.dll!MessagePack.Resolvers.DynamicEnumResolver.DynamicEnumResolver()	Unknown
+System.Private.CoreLib.dll!System.Runtime.CompilerServices.ClassConstructorRunner.EnsureClassConstructorRun(System.Runtime.CompilerServices.StaticClassConstructionContext* pContext) Line 104	C#
+System.Private.CoreLib.dll!System.Runtime.CompilerServices.ClassConstructorRunner.CheckStaticClassConstruction(void* returnValue, System.Runtime.CompilerServices.StaticClassConstructionContext* pContext) Line 38	C#
+MessagePack.dll!MessagePack.Internal.StandardResolverHelper.StandardResolverHelper()	Unknown
+System.Private.CoreLib.dll!System.Runtime.CompilerServices.ClassConstructorRunner.EnsureClassConstructorRun(System.Runtime.CompilerServices.StaticClassConstructionContext* pContext) Line 104	C#
+System.Private.CoreLib.dll!System.Runtime.CompilerServices.ClassConstructorRunner.CheckStaticClassConstruction(void* returnValue, System.Runtime.CompilerServices.StaticClassConstructionContext* pContext) Line 38	C#
+MessagePack.dll!MessagePack.Resolvers.StandardResolver.StandardResolver()	Unknown
+System.Private.CoreLib.dll!System.Runtime.CompilerServices.ClassConstructorRunner.EnsureClassConstructorRun(System.Runtime.CompilerServices.StaticClassConstructionContext* pContext) Line 104	C#
+System.Private.CoreLib.dll!System.Runtime.CompilerServices.ClassConstructorRunner.CheckStaticClassConstruction(void* returnValue, System.Runtime.CompilerServices.StaticClassConstructionContext* pContext) Line 38	C#
+MessagePack.dll!MessagePack.MessagePackSerializerOptions.MessagePackSerializerOptionsDefaultSettingsLazyInitializationHelper.MessagePackSerializerOptionsDefaultSettingsLazyInitializationHelper()	Unknown
+System.Private.CoreLib.dll!System.Runtime.CompilerServices.ClassConstructorRunner.EnsureClassConstructorRun(System.Runtime.CompilerServices.StaticClassConstructionContext* pContext) Line 104	C#
+System.Private.CoreLib.dll!System.Runtime.CompilerServices.ClassConstructorRunner.CheckStaticClassConstruction(void* returnValue, System.Runtime.CompilerServices.StaticClassConstructionContext* pContext) Line 38	C#
+MessagePack.dll!MessagePack.MessagePackSerializerOptions.Standard.get()	Unknown
+MessagePack.dll!MessagePack.MessagePackSerializer.MessagePackSerializer()	Unknown
+System.Private.CoreLib.dll!System.Runtime.CompilerServices.ClassConstructorRunner.EnsureClassConstructorRun(System.Runtime.CompilerServices.StaticClassConstructionContext* pContext) Line 104	C#
+System.Private.CoreLib.dll!System.Runtime.CompilerServices.ClassConstructorRunner.CheckStaticClassConstruction(void* returnValue, System.Runtime.CompilerServices.StaticClassConstructionContext* pContext) Line 38	C#
+MessagePack.dll!MessagePack.MessagePackSerializer.Serialize<System.__Canon>(System.__Canon value, MessagePack.MessagePackSerializerOptions options, System.Threading.CancellationToken cancellationToken)	Unknown
+>	MessPack.exe!MessPack.MainPage.OnNavigatedTo(Windows.UI.Xaml.Navigation.NavigationEventArgs e) Line 107	C#
+```
+
+MessagePack relies on Reflection.Emit that is not supported by .NET Native.
+
+There was a NuGet package created that makes it appear NetStandard supports reflection emit, but creating that NuGet package was a big mistake, because that API only works on two out of 4 implementation of NetStandard: https://github.com/dotnet/runtime/issues/26007. This created a situation that some NetStandard libraries can't work on all NetStandard runtimes. People in charge tried to fix the issue by unpublishing the package (so that we don't have a broken ecosystem), but had to roll that back because of outcry from users. This mistake is still haunting us years later, unfortunately.
+",civil
+24,359646248,"This is all voodoo to me, but one request: make sure that even if using `vh`/`vw` etc, that there's a component for font sizing tied to something else like `px`/`rem`/`em`. Otherwise (when a font size is purely related to viewport dimensions and nothing else) you kill the user's ability to (full page) zoom on desktop and change the size the text is rendered at (as yes, the viewport dimensions change, but the font size would then change proportionally in the opposite direction, meaning the apparent font size is never actually altered).
+",civil
+25,302132597,"@cathalgarvey I do hope they are working on a hip backend, not a full fork. That would be sad and only split the working effort.
+There is enough tooling already :/
+",civil
+26,575764112,"Thank you @danieldreier – epic update and the transparency is appreciated! I think we can finally all rest easy that this is coming ^_^
+",civil
+27,303016535,"@cathalgarvey the discussion is clearly valid, but not here...
+You are on GitHub here, on the track discussing the port of TensorFlow & Eigen using Khronos Group standards.
+This is not Twitter or your Facebook wall... :-)
+So please contribute with some commits on these projects ! :-)
+",civil
+28,548497758,"> My personal opinion is that your behavior appears to be unethical
+
+It's unethical to provide support to people to show how they can contribute to the Roslyn open source project?
+
+> Being an app developer (or likewise) is already a challenging, time-consuming, and exhausting job. Thus it would be very unreasonable to expect app developers to do even more work in the form of unpaid casual side-jobs
+
+This is how much of the open source world works.  Projects are made freely available for people to use and modify and contribute back to.  When the priorities of the team don't align with your particular desires, you can choose to petition that they change, and/or you can choose to contribute your own efforts to align the project with your own desires.
+
+>  However, it would be wildly unreasonable to expect @ChainReactive to sacrifice himself like you do.
+
+I have never expected @ChainReactive to do anything. I have simply pointed out that this is something he can choose to contribute to if he wishes.  And, if he does wish to do so, i am 100% willing to provide my own time and experience toward aiding that effort.  There are many other community members who are willing to do that as well, and this has led to hundreds of community PRs and thousands of commits to the Roslyn repo that have improved the project for *everyone*.  This is the power and value of it being an open source project.
+
+Cheers! :)
+",civil
+29,816907066,"> here's the open npm RFC to add registry dependencies
+
+Which is a very interesting example, thanks for bringing that up. The RFC you're talking about has received strong objections from both Yarn and pnpm - objections which from what transpire from the issue don't plan to be addressed. In other words, npm being the only package manager is already putting the ecosystem at risk (at least under their current handling of RFCs).
+
+Also note that this isn't a unique occurence - in fact, it already happened a few months ago with npm 7, which tried to change how peer dependencies are semantically defined. Just like now, the RFC received early and strong pushback from both Yarn and pnpm (and other projects), but the RFC author decided to ignore them and go with it.
+
+The lack of package managers diversity (and thus neutrality) is a problem. The role of the Node TSC is to find a solution. This PR (along with others) is a way to do that. If you have a better one go for it? I don't mind seeing competing ideas.
+",civil
+30,222857224,"Thanks for all the feedback on WCF Server top features! Keep it coming!
+
+Providing WCF Server support for .NET Core is on the radar.
+
+As you know, our current POR is to provide the WCF client-side libraries in .NET Core to enable UWP/ ASP.NET Core/.NET Core applications to call .NET Framework based WCF Services.
+
+We are very interested to better understand your scenarios where WCF server side functionality is required.
+Is this blocking your adoption .NET Core?
+Do you have active projects on .NET Core for WCF Server scenarios? (We would like to partner closely with you)
+Would you plan to port over your existing services or is this for needed new development?
+
+",civil
+31,362221782,"@austin94 that is painful 💔
+
+
+",civil
+32,531871579,"We would appreciate a python 32bit fix, some distros install python 32 bit by default and there's no way around it
+",civil
+33,324547835,"I also happened with such problem，it confused me for two days. I had reinstalled VS2017 with 15.3 for many times,but it didn't work. I also tried to update the Unity , but the old project can't be opened without any questions. I had a very long way to find the solution(I also tried VS2015) . At last the VS2017 with 15.0 and the unity 5.6.2 works well in my computer, that is my way to solved this problem. I wish it may be helpful.
+",civil
+34,437169457,"@chrisdel101 My suggestion would be to greatly simplify the problem such that it can be solved by changing a normal function definition into an arrow function definition.  It's not even important that the output of the function be checked, just the syntax.  Just make sure that the instructions line up and that the tests check for the correct syntax.
+
+I think that would be the most direct solution.
+
+I'd say go for it!  Making these types of changes was how I got started.  It's great experience!
+",civil
+35,74088452,"@spkane sorry - I misread your original issue.
+
+I would suspect (and maybe @mitchellh could elaborate more) a few things:
+1. Ruby is slow and somehow throttling the subprocess
+2. Wget is faster than curl (which is what Vagrant is using)
+3. Vagrant is also allocating time to unpack the box
+4. Wget is allowing for some type of compressed download
+
+It would be helpful if you could benchmark this with curl for reference.
+
+",civil
+36,395658614,"@jlukic thank you for clarifying your long-term vision for SUI, and I really really like it! But still, it doesn't seems totally incompatible with the much more short-term plan of letting other talented people maintain SUI 2.x while you work towards what it seems to be SUI 3.x / SUI-NG, don't you think?
+
+Anyway, thanks for all your hard work and dedication to this project!
+",civil
+37,669484734,"Coming from Linux, it was confusing to ctrl-v in vim and see my last pasta. Had to google on how to get the standard behavior.
+",civil
+38,797574414,"@sharwell
+
+I apologize for being rude, but ever since Visual Studio 2015 I am sick of Visual Studio messing with my keyboard input and not respecting my configuration choices (and in some situations not even giving me any choice).
+
+I understand that the problems with mixed tabs and spaces such as this very contrived example:
+```
+void function()
+{
+LongClassName	c;					// tabs here
+HRESULT		hr = E_FAIL;
+
+if ((value ==  8) &&					// NOTE: Don't mess with comment alignment either
+(  age == 21) &&					//       or someone will be really annoyed
+((flags & DONT_MESS_WITH_TABS) ||
+(flags & DONT_MESS_WITH_SPACES_EITHER))
+) {
+// TOOD: figure out how to handle this...
+abc.Value		= 3;			// and here
+abc.AnotherValue	= ""MaybeNotTouchThis"";
+}
+
+EvenLongerClassName e = new EvenLongerClassName();	// but not here
+}
+```
+Are really complex to solve, but perhaps it would be prudent not to mess with indentation when mix of tabs and spaces is detected at line start? The rest of the line could be formatted according to the rules, leaving anything past the expression end as-is to avoid messing up comment alignment.
+
+I understand that perfection will never be possible, but at least having an option to disable auto-conversion of tabs to spaces would be a start.
+
+@jmarolf Thanks for starting the discussion about potential solutions.
+
+Maybe we are approaching the problem from the wrong angle? Maybe we should instead define rules such as:
+
+- Always use tabs for line indentation, comment alignment.
+- Use tabs for variable declaration alignment unless they are in the middle of the code.
+- Always use tabs for right aligning before assignment operator.
+- Always align `if` sub-expressions on their opening paren.
+- Always align left and right side in `if` comparisons on the operator inside paren, pad left or right side as necessary.
+
+If I am not mistaken the rules such as those would produce the results as in the above contrived example. Again, I understand that it might not be possible to code such rules, but at least it should be possible for me to format the code like that without having to fight with the editor for every character I type.
+",civil
+39,808843192,"Hello, @votdev
+
+I am trying to build myself home NAS with old Atom mini-ITX board... So i install OMV5, i plug in dad's old NTFS drive... and here we go...
+
+Frankly, i wish Salt guys put the comments inside this source, listing all the bugs related to this module. So any hacker which for whatever reason would change it - would be instantly notifie on old pending bugs.
+
+Salt seems extremely fragile here, probably no one else except for OMV5 uses it for partitions. Maybe OMV6 could do it outside Salt? Like good old UDEV rules or anything. I mean, before Salt porject might decide to drop this functionality that almost no one use, instead of burden of maintaining it for OMV5 alone....
+
+Well, ranting aside, i am rather puzzled with your _device: ""/dev/disk/by-label/My\\x20Passport\\x20Blue""_
+Where do you even get this hex substitution from???
+
+Thing is, the whole mounting escaping is one uber-ancient legacy mess. Putting it here so maybe someone would use it. I spent like 3 hours googling around and experimenting with Python that i never used before. Tryied to google some standard about Posix/Linux/bash filename mangling/escaping.... and then Python module to undo it. To no avail.
+
+Okay, so, to document it down.
+
+- mtab/fstab and friends is one-of-a-kind ancient mess.
+- it started with ancient BSD (not FreeBSD) function strunvis, which behaviour  not documented. Probably that was OS-specific function (a la virtual methods). http://manpages.org/strunvis/3
+- when Linux was mimicking good old BSd it only made ad hoc substitutions for 4 specific chars. There is no any systematic/generic pattern at all.
+
+```
+static inline void mangle(struct seq_file *m, const char *s)
+{
+seq_escape(m, s, "" \t\n\\"");
+}
+```
+https://elixir.bootlin.com/linux/latest/source/fs/proc_namespace.c#L84
+
+```
+R(""\\"", '\\'),
+R(""011"", '\t'),
+R(""012"", '\n'),
+R(""040"", ' '),
+R(""134"", '\\')
+```
+https://sources.debian.org/src/sysvinit/2.96-6/src/fstab-decode.c/
+
+So, whatever comes from Linux mounts information - should be de-mangled for those four special cases.
+Every single space-separated column of every single line.
+Ugly, and undocumented, but that is what it is. And, frankly, it is not that hard...
+
+BUT, why do you want to compare with some arbitrary hex-escaped string? what can be a real use-case for that???
+Linux kernel just does not have hex-escaping code for disk mounts.
+
+Now, to be frank, even this would NOT be enough, because i can have multiple disks with the same partition label. Like many USB thumb drives with ""DATA"" partition. I can even have several partitions with the same name on singe disk!
+
+Again, it can be fixed by detecting collisions and adding extra data, like counters or GUID or whatever, but...
+
+What gonna OMV do if OMV's user has two drives with partitions having same labels, and then he hotplugs one disk, or another, or both in any order? Is it race condition now? Is it okay for OMV to have race condition?
+Seems whatever use cases Salt imagined for them here is very different from what OMV users might face.
+",civil
+40,716057171,"@bk2204 My sincere apologies.  I was in the wrong, and I've done you harm.  I'm sorry.
+
+@ericwj Your comment violates the Go Community Code of Conduct (https://golang.org/conduct), and I've deleted it.
+",civil
+41,87369,"Just kidding, bring the hat back.
+
+",civil
+42,548258153,"> @CyrusNajmabadi, @sharwell Visual Studio is a commercial product with a dedicated team on staff at Microsoft.
+
+It's also an open source project with a community that actively contributes to it and provides PRs when their needs don't align with the priorities of the main team itself.  I'm one of those people and have contributed as an external community member a large number of times.
+
+As i've already pointed out, the stated view of the team is that there is an easy workaround if hte current behavior is undesirable to you.  If that workaround is not tenable and you want to see this fixed, it will have to come from a PR from someone willing to view the change as valuable enough to invest their own time.
+
+I personally don't feel like it's worth fixing myself, but i'd be happy to help you with a PR to change if it is something that is affecting you.
+
+> The people who's job it is to improve Visual Studio's user experience
+
+As an open source project, ""the people"" includes the community (including you, me, and other interested parties).
+
+> would be better equipped to fix this.
+
+Yes, that's likely true.  But they're also tasked with work felt to be more important and a more valuable use of their time.  And so here we are.
+",civil
+43,776197063,"> I'm grateful to all the Flutter developers for their work on Flutter, and for making it available for free.
+>
+> A few points.
+>
+> * On the Flutter site, this issue is still not clearly shown. I spent a week of full time effort learning Flutter, only to find out about this issue hidden in the shader optimization article. I feel misled because everything I first saw on homepage etc, promised 60 FPS and native performance. I think its bordering on unethical to not make this problem clearly known to new developers.
+> * This issue should be a higher priority than anything else, instead it still seems like its a P3 or lower. No one is even assigned to this issue yet?
+> * There should be an ETA / timeline for a resolution.
+>
+> It looks like there's a solution available - running animations in the background to warm up the shader. We just need something around that to be made official.
+
+To be honest. Flutter being free in this case makes it only worse. I wish it was paid so we would not get the “it’s free, whatever you get be happy” response. At least we would not get a 100 line code commit after 1 year on such a huge issue.
+",civil
+44,396349954,"I love you Jack, for making SUI. I just hope you dont get crazy <3
+",civil
+45,567512358,"I'm also not happy that the santa hat was removed, completely ignoring the public opinion here on GH.
+",civil
+972,67,"This name is in use and should be changed imediately. Yes, I have seen the other issues. Yes, I am opening a new one because fuck you Microsoft.You are merely trying to cast a shadow on other, truly open source projects.
+
+https://itsfoss.com/microsoft-maui-kde-row/?fbclid=IwAR3lO4SDxw3H01YsuKZ9G5D2zc1K-OOpjInCKnnY5GBpqiAdnhqfXJGG_EI
+
+",uncivil
+973,567463533,"PC?! What if I'm a mac-user?!
+",uncivil
+974,470556345,"you guys are worried about what data the calculator is collecting? what about the rest of windows lol
+",uncivil
+975,440814939,"> ANSICON (and colorama etc.) already exist and are free. So why not leave the past in the past?
+
+They have.  Don't struggle with this, Mike.  Again, if your mythical ""twenty year old stuff"" doesn't work with the new Windows 10 console, by all means, use the old console, link in ANSICON, and keep relying on monkeypatching GetProcAddress (euughhhh).
+
+
+",uncivil
+976,360233228,"@reduz right back at you then. since there is no ""leadership"" in this open source project, you sir, cannot claim C# is superior to gdscript then. i just gave you two god damn good reasons why gdscript > C#, and you still continue to dodge. gg faker.
+
+you also completely dodged my point about the smiley emoji implementations. so i recommend a good feature for the engine **(inventory and other 2d stuff, that ALL GAME DEVELOPERS WILL BENEFIT FROM)**, but **you spit in my face**, claim that it's not ""low level enough"", but then go around merging PRs for ""emoji smiley"" support for fonts? that's somehow still low level though? wtf??
+
+
+websocket support still has never been implemented. are you going to pay @Faless a quarter of the $20,000 grant that mozilla gave? since he actually implemented the websocket module? or you going to say ""ahhh, software conservancy handles the funds, we don't know what to do with it!"" as you always do? then keep it for akien, you, and @karroffel? doesn't really seem fair to me.  look at it from my perspective please.
+
+in any event. complete and utter crap. but wait, @akien-mga will continue to block users, close discussions, etc. seems like i need to go make a new fucking account again for the 5th time... can't have discussions without bypassing  / cheating github it seems! so much for ""open source"".
+
+
+
+
+
+
+
+
+",uncivil
+977,160203689,"Hello @MartinLion ,
+
+we understand your eagerness to solve your problem, and your frustration when it is not solved.
+
+However, you seem quite misinformed about what is scikit-learn, how it works, and how the project is developed. Therefore, I would like to make some points clear for you. As you can see from
+http://scikit-learn.org/stable/about.html, scikit-learn is a community effort that is developed by a team of volunteers, mostly on their free time. Gaël is one of the creators of the project and its current leader:
+scikit-learn would certainly not be the same without his contribution (the same for other volunteers), and he certainly did not deserve your dismissive words.
+
+What I would like to emphasize is that there is no such thing as a scikit-learn ""product"", or scikit-learn ""staff"" (only a handful of people have worked full time on the project). You mention ""we as users are
+customers"", but how much are you paying for using scikit-learn? Despite the important development cost, users get scikit-learn for free (and of course that's how it's intended to be). In fact, the development of the project relies on a fragile alchemy: users' needs being a top priority for developers, and users reporting bugs and concerns in the most positive way. The kind of ""ranting"" that you wrote can be very discouraging for developers, who contribute their free time and their expertise just because they believe that scikit-learn is a useful tool for the community. Some prominent developers stopped contributing to open-source software precisely because of such ""customer-like attitude"" of a few people underlining only shortcomings, and dismissing the huge development efforts. Please try to see the bright side as well: you received advice and comments from a lot of people, I'm sure that there was something for you to learn out of it, even if it did not solve your problem.
+
+Also, although users' needs are indeed a top priority of scikit-learn (it has an amazing documentation, of which most scientific Python packages can be jealous!), each software addresses a well-targeted niche of users, and it is just normal that scikit-learn cannot fit all users. For example, it is preferable to use scikit-learn with already a good knowledge of Scientific Python. So, I'm really glad that you found a
+package that suited your needs better, but please also acknowledge the time and good will that people gave away when answering you.
+
+So, folks, let's all show some good will and keep a constructive dialog.
+That's how the project we love will keep on rocking!
+
+",uncivil
+978,567217278,"Relax and take your medication. The grass isn't greener on the other side...
+
+// +10 year Java master & former frequent linux user
+",uncivil
+979,574547217,"There is both a ServerChatEvent and a ClientChatEvent, they should address the bulk of what you need.
+A 10 second look would of shown you that.
+And do not readd links in which I have removed, do it again and you'll be blocked.
+I have instructed you on two paths on how to achieve your goal now.
+
+Also this PR would never be accepted because we do not encourage people to directly screw with packets at the  raw level like this.
+IF it was to EVER be entertained it would have to be hooked in the correct places where the data is actually sent like ServerChatEvent is and have the proper context.
+If you're just going to hack around with low level packets, then just use netty and don't bother us when things break.
+",uncivil
+980,502885319,"You are making toxic and unhelpful statements. Please refrain from doing so. Sarcasm and profanity will not help you get your issues resolved.
+
+I have replied in your [main question](https://github.com/microsoft/service-fabric/issues/333). If you would like to engage in constructive discussion, go there. If you want to continue to make mean and unhelpful assumptions and remarks, go ahead, but then we can just close down this whole thread as well.
+",uncivil
+981,548472440,"> I'm sure they're working on new and great things, but some house keeping of low hanging but high value fruit like this issue would be nice.
+
+Many issues like that are fixed in any given release. You can just look at the issues closed with merged PRs over a certain time period.  That doesn't mean all the things you care about will be addressed though.
+
+>  You have a knack for justifying inaction.
+
+I've already offered my time toward helping you fix this in a paired manner.  If you view my willingness to work with you to fix hte issues you care about as ""inaction"" then that's on you.
+
+> As I mentioned above, I don't have time.
+
+If that changes in the future, let me know.  Still happy to help you out here to reach a resolution you would like! :)
+",uncivil
+982,567478553,"I would also like to point out that snow(flake) is _white_ and is commonly used as a white supremacy symbol to oppress and marginalize whole ethnicities, which due to systemic geographic discrimination couldn't historically experience, first-hand, full range of weather phenomena.
+",uncivil
+983,805049922,">
+>
+> @FlorianHaupt For 75% of my career to date, I was a non-Microsoft developer working on projects primarily using tabs for indentation. The current behavior better represented the expected behavior for those projects, so on those projects I would have considered VS2015 to be the point where **the bug was _fixed_**, not introduced (note that I was not working at Microsoft for the VS2015 release where this behavior changed, so I was just a user). The complexity here is we're not talking about ""fixing a bug"", we're talking about introducing an option at a location that was never designed to be an option, and somehow getting both¹ behaviors to work seamlessly.
+>
+> ¹ This is a simplification, because in reality there are _at least_ three very different behaviors being requested.
+
+What 'bug' are you talking about?
+Please read the initial post again, and please stick to one topic per thread.
+There is nothing complex about the BUG he is reporting.  If that _is_ what you are talking about, then please demonstrate another editor in existence which replaces tabs with spaces between code and comments.  That is NOT expected behaviour.
+
+If you are talking about something different then please split this thread as several quite different topics appear to be being discussed at once.  Nothing will get fixed that way.
+",uncivil
+984,401178288,"Largely a duplicate of #19826 from earlier this year.  The answer is still 'no'.
+
+Places where gaps in the existing crypto API make emulating WebCrypto hard can be taken into consideration.  Asking for WebCrypto to be added to core verbatim?  Not on the table.
+",uncivil
+985,548299644,"> Teams prioritizing things different from you is not negligence
+
+I disagree with you on this in the current context.  The (ir)responsible team at Microsoft is neglecting a lot of users by not fixing this bug.  Just google ""visual studio c# turn off align comments"" to see.
+
+> This minor issue simply isn't one of those.
+
+It is a ""minor issue"" in that it'd be easy for them to fix, although the choose not to.  It's not a ""minor issue"" in that it is indeed super annoying.
+",uncivil
+986,417827484,"@SRGOM -- So for all this grandstanding you're doing -- why not delete your GitHub account...seriously -- MS will own GitHub soon. Also -- change your OS from Windows -- if you use that...
+",uncivil
+987,655543320,"Simply stupid. There's no other way to put it. Stupid, like all this progressive shit destroying everything it touches.
+",uncivil
+988,631051737,"> Unless MauiKit has a ™ on the name, I can't see how this is at all an issue.
+
+Unless you _actually_ work for the companies involved, your opinion is probably negligible here.
+",uncivil
+989,513935809,"@RyanCavanaugh Please don't @-mention me in threads I'm not subscribed to. I refer to what I already wrote above. Your comment is insulting and more than useless. Go and learn some manners!
+",uncivil
+990,805097729,"> We do fix hundreds of issues. But there are a lot of things out there that people want fixed.
+
+That is just a proof that Agile (a.k.a. move fast and break things) approach to development doesn't really work as well as some people claim it does, and that internal QA team is necessary for development of quality software.
+
+> So it's definitely possible that the set you care about isn't the set that always makes it into a release. The ones in this area are particularly thorny, and we lack a good mechanism to get high confidence that changes here not only make things better for these cases, but also do not make things worse for cases that others care about.
+
+I apologize in advance for the offtopic, but I have to point you and @sharwell to an [issue](https://github.com/microsoft/dotnet-framework-early-access/issues/58) I submitted in .Net Framework regarding `Environment.SetEnvironmentVariable` function.
+
+The original issue was initially moved to .Net Core and marked `won't fix` for .Net Framework, and it was archived in the meantime. I'd like you to spend some time if you can reading the back and forth arguments there.
+
+After you do that, please proceed to the [issue](https://github.com/dotnet/runtime/issues/1442) they recreated for .Net Core initially, which has later been returned to .Net Framework runtime, and on March 28th it is going to be two years without resolution.
+
+I'd also like you and @sharwell to spend some time to read my back and forth with Microsoft software engineers there.
+
+You can see everything that needs improvement in the way issues are handled now at Microsoft -- from developer(s) not understanding the issue despite clear explanations, over them trying to find excuses not to change anything, over them not understanding the undelying platform behavior and original Win32 API, over developers of 3rd party libraries and tools chiming in saying issue should be fixed, to the issue resolution being endlessly postponed because ""more discussion is needed"" or ""triage is needed"" or whatever the excuse of the day is. I hope by now you are noticing a pattern, because the same kind of discussion is going on here as well.
+
+And today here we are approx. 6 years since the release of Visual Studio 2015 where the issue was introduced and you are telling me that you need more time to make sure someone is not negatively impacted while people using tabs are negatively impacted for 6 years and counting.
+
+If you do bother to read those discussions as I asked you to, you will hopefully see how much of my personal time and effort I have spent on submitting the issue, and explaining things that Microsoft's own software engineers should have known better than me. In case what I am hinting at isn't clear, the difference is that I am a customer who is paying for the OS and dev tools licenses who is spending own free time to help improve things, and your colleagues are doing this on the salary and with this kind of response I am getting I have absolutely no incentive to contribute further. On the contrary -- I have the urge to drop Microsoft products and suggest to the company I work for that we do the same wherever we can.
+
+TL;DR -- I did provide feedback, I answered all questions asked by @jmarolf and @sharwell, and as far as I am concerned I did more than enough to help you understand the problem we are having and how you might solve it. I hope you prove me wrong and actually fix this issue, but I won't be holding my breath.
+",uncivil
+991,631047182,"Imagine trying to put up a façade with ms❤️linux, then turning stuff into a dick size competition with repo stars and other stats because you know you messed up and don't want to admit it lmfao
+",uncivil
+992,502882427,"@jackbond Please try to be more constructive. Of course we do.
+",uncivil
+993,399216797,"@bcoca, while I fully understand your reasoning, this is detrimental to people learning how to use Ansible. Google groups are literally terrible. For example, there are 0 results for ""Unable to parse /etc/ansible/hosts as an inventory source"" when searching this in the group. However, Google finds multiple hits, and among the top ranking hits are these issue threads. Github issue tracker has a far superior interface because it's easy for winning solutions to be marked with reaction emojis. When a winning solution is found, the more people that it works for, the more emojis that solution will collect. This saves people a lot of time and reading, because I can skim an issue thread for the reaction emojis, I don't need to struggle to comprehend every commenter's broken english description of something that's probably not even relevant. Please reconsider.
+",uncivil
+994,728771652,"> Because he's continually said that this proposal had been rejected; he's said why it was rejected; and thus all this complaining on a rejected issue is just noise.
+
+> If you want to talk about it further, do so where you have been asked to go. If you don't want to do that, you obviously don't care as much about your proposal as you seem to.
+
+These two paragraph is not the logically related at all. The announcement about rejected is fine. We have rejected proposal as always. The complain is also normal reaction as always. And the explanation and reasoning is exist but that doesn't mean it must always be acceptable or even reasonable, or even corrected. And that's also normal that people who against it would like to have more acceptable reasoning or possibility of rethinking (Like generic that was rethink and reintroduce in C# 2.0)
+
+The announcement and argument also exist `here` in repo and issue board of the repo so we come here to voice our argument in here to be on topic. But then the argument and debate must go into the gutter like chat channel to make it easier to forget, that's all reasoning I could understand about why we need to go there, the team just don't want to listen or even have clear evidence that people appeared to go against your decision (I might be overthinking things but this was one technique a dictator would used to suppress opinion of people)
+
+At first I just try to point out that the argument used to reject is not sound enough. Sure I have support this feature but if there is valid argument, like breaking change, I would consider it understandable. But for assumption that this feature will have `minimal usage` is very unlikely and very vague argument
+
+But not only there are no further explanation, you just demand people voice's to be drained into gitter and discord instead of the issue topic itself. This is what I really would called unreasonable
+
+And in fact I felt very uncomfortable because this is not what we commonly do here. As I said there was always rejected proposal and people always voice their opinion under issue of that topic. But I have never seen that we need to move the discussion to chat channel. At most the issue itself would be turned into discussion. But now you just don't want discussion to be under the issue and we don't have reason why it changed
+
+ps. I guess this comment would be marked as off topic while above comment would not
+",uncivil
+995,567431081,"In addition, it reminds me of black people lurking around.
+
+Microsoft scares me by forcing people to use this theme.
+",uncivil
+996,417050999,"You're going to introduce a major license change, refuse to change the license name and do it in a minor version bump? What the actual hell is your goal here?
+",uncivil
+997,776123970,"@KrillioSokolov may I remind you of the code of conduct of this repository which strongly encourages a kind behaviour?
+This isn't an issue that is so easy to fix. Always keep in mind that this is a full framework you get for free.
+And this issue would be way easier if Apple hadn't decided not to join all other Vendors in Vulkan but to develop Metal.
+",uncivil
+998,548358805,"@kmgallahan : Sorry, but speaking about ""professionals"" better TO BE professional. I have doubts you are, because you miss absolutely tech question, which I can cite AGAIN:
+
+> Tech Q: What ""exciting and unique"" you have in Win10 that your GUI lib(!!!) cannot work on Win7?
+
+And funny, but NOT A SINGLE ANSWER were given by... hm... ""professionals"". Maybe you will?
+",uncivil
+999,490034352,"Why don't you develop your own terminal instead of asking like you are the CEO of Microsoft?
+",uncivil
+1000,631057922,"> I don't believe this is not the forum for this discussion. If there are ongoing concerns, please email me and we can loop in the appropriate teams.
+
+Why close issue when you ""don't believe this is not the forum""
+
+Isn't that the exact opposite thing that any sane person would do?
+",uncivil
+1001,735724029,"This needs a kickstarter campaign
+",uncivil
+1002,438355065,"I use the same app and have zero issues with comments, etc. Also, your explanation still makes zero sense ""It's just re-identify the id if change"" isn't even a proper sentence. And even after being told by the main contributor of the repo that that is not a fix you continue to spam peoples' posts with this. Just PLEASE STOP. Listen to his comment and stop suggesting this crudely thought-up bandaid of a ""fix"".
+",uncivil
+1003,660236919,"This is absolutely unacceptable behavior. This rule is simply assuming it owns the entire namespace of all functions beginning with ""use"", and starts screaming about unrelated functions in the rest of the project that have nothing to do with React.
+
+This is much more atrocious than carelessly declaring variables in the global namespace! Whoever came up with this idea clearly doesn't understand why ESLint was created in the first place. There are plenty of domains where you would like to give a function a name beginning with ""use"". Not all of us are React developers and we shouldn't have to change code in unrelated parts of the application.
+
+We're having a real problem with this because ESLint ignores the .eslintrc.json file (due to some other bug in ESLint), and it breaks the build.
+
+",uncivil
+1004,417059200,"> especially as a former Facebook employee... come on
+
+Once upon a time I thought I had to go work for those big corporations that I hate in order to do the kind of open source work I want to do. That turned out to be incredibly false. So I fucked off and told them to eat shit.
+",uncivil
+1005,728317947,"> > @CyrusNajmabadi I think to make right decision for this feature is to create a poll
+>
+> The language direction is not decided by polls. It has a design group that has total control over the design process here.
+>
+> > C++/Swift has both top-level functions and static methods and it is not annoying anyone
+>
+> What C++ and/or Swift do isn't part of our decision making process for C#.
+>
+> > and ask people will they use this feature and would not be it annoying that exist two solutions: static methods and free functions
+>
+> 'annoying' was not part of the decision making process. We genuinely do not believe this is a good feature to add to C# at this point in the lifecycle of the language.
+
+@CyrusNajmabadi
+It should not be about believing or feeling ... It is not technical terms, there is should be Mind Map - what this feature will provide and allow to achieve ...
+",uncivil
+1006,561809857,"Hi @ostrolucky - I would like to remind you that we are a small team of maintainers, and it has been less than or barely 24 hours since I responded to your issue yesterday. There are a lot of other folks that we are supporting at the same time as you, and we are responding as fast as we can. Please know that we aren't ignoring you, nor are we happy to close your issues and never respond. Please have patience with us while we try to assist you and others. Thanks :heart:
+
+I'm happy to make a temporary fix to support the two parameter method for this third party plugin using an internal library to Vagrant, but as I mentioned yesterday you will likely get more traction and a quicker fix if you open an issue on the plugin side and fix it there. Our Vagrant release cadence isn't too frequent, and there are lots of other issues and features that we're trying to get in for each release.
+
+If you wish to get this moving faster, there is already a pull request on the plugin: https://github.com/smerrill/vagrant-gatling-rsync/pull/37 I recommend pinging the maintainer on there.
+
+For fixing this today on your side, you should still be able to use the built in rsync synced folder feature, as this is the recommended way to use rsync and Vagrant. Alternatively, downgrading to Vagrant 2.2.5 and using that plugin until a fix has been met is also a possibility. You could also bring in the changes locally and run and install the plugin from source.
+
+We can leave this open to track the issue for now in case others find it. If our next release time comes around and it's still not fixed on their side, I'll apply a patch that fixes this so that it works in 2.2.7. Thanks!
+",uncivil
+1007,558863152,"I did so.  You need to reopen this one too, because, inconvenient or not, autoupdate checks are also an inadvertent form of telemetry *whether the project uses them for the purpose or not*.  The data (user with IP X has opened Atom at time Y) is transmitted to third parties regardless of whether or not Microsoft is collecting or using this information as telemetry.
+
+It doesn't matter if the telemetry is coming from ""the telemetry package"" or not.  It's still useful as telemetry, and is sent without consent.
+",uncivil
+1008,567456773,"We should stop using git as version control for vscode too.  One time a random person told me to “git good” and since then, “git” is extremely offensive to me.
+",uncivil
+1009,631053015,"I'm surprised no one complained about Microsoft's use of the name `core`
+
+- https://github.com/home-assistant/core
+- https://github.com/dotnet/core
+- https://github.com/owncloud/core
+- https://github.com/stackblitz/core
+- https://github.com/flarum/core
+- https://github.com/c9/core
+- https://github.com/adonisjs/core
+- [et al](https://github.com/search?q=core&ref=opensearch)
+",uncivil
+1010,777280609,"Women can also be a construction worker 👷‍♀️ 🤦‍♀️
+",uncivil
+1011,381623361,"Soooooooooooo you’re setting Angular on fire and saying bold shit in bold like the Angular team don’t care about you cause you found relative pathing has an issue is an odd area
+
+What did Ionic do to get it right? I’m NOT going to create some plunked to split hairs with you
+
+I felt Angular 2 to Angular 4 stuck it to me in the ace hole butttttttttttttt alas past my bitching, it all was for the better
+
+So try to call me out and split Cee U Next Tuesday’s hairs with me........ The topic here has just been a bunch of bitching where I have found success in the CLI and lazy loading.
+
+See U. Next Tuesday
+
+
+
+",uncivil
+1012,702941715,"A full OpenID Provider has been built in.  Not sure why it's considered necessary to have it now.
+
+I get that IdentityServer going non-free sucks for some users but there are alternatives like OpenIDdict.
+
+Begging Microsoft to make things like this distracts them from improving core functionality.  Microsoft doesn't have to own everything dotnet.
+",uncivil
+1013,804838780,"This is really worse, what I read here. This misbehavior on tabs was reported shortly after the release of the VS2015 version, multiple times, by different people. Most of this reports were closed after a short period. I am quite sure, that everyone here knows about the license costs - I use a lot of cheaper software where the companies do not deal in such a bad way with their customers and fix such bugs when they get reported. Funny enough that this is open, the one reported on VS2017 Express.
+You developed an new auto format engine and it fails to give the same good experience as the one that was used before and instead of fixing it, you prefer to spend hours of discussion with arguments that have nothing to do with the given issue. This is not understandable, a new engine has bugs and you do not feel the need to get it fixed? On top it is for the comfort in code editing and this is a bug that breaks the comfort in editing, creates unnecessary extra work – a very worse experience.
+How much patience do you expect, by people that have to deal with this bug on every day?
+I still remember that there once was really good bug handling within the visual studio team - seems that this is history.
+",uncivil
+1014,401184534,"If you don't have anything relevant to say, stay quiet. You just sent email notification to 100+ people.
+",uncivil
+1015,784426458,"@sharwell
+> Git has the ability to transparently normalize line endings as part of commit/checkout, but there are many reasons why this would not work with tabs/spaces...
+
+Let me be absolutely clear that I did not suggest changing Git behavior, but rather emulating their set of options for the particular problem at hand.
+
+With that out of the way, can we agree that VS editor already does some sort of ""normalization"" of TABs and spaces?
+
+The problem in my opinion is twofold:
+
+1. The existing settings that govern TAB .vs. space editor behavior are all over the place and totally do not work as described in the UI, much less produce results that are expected.
+2. There is no `What You Type Is What You Get` editor setting -- I just want (and I am sure I am not the only one) that when I enter mixed TABs and spaces on a single line of code that they stay exactly like I entered them (save for expression reformatting which is already customizable enough for everyone's taste).
+
+@CyrusNajmabadi
+
+> How can I understand without discussing and talking with people about the topic?
+
+You butted into the middle of a discussion by putting words in my mouth because you haven't bothered to understand what I wrote. Maybe that is somehow my fault because English is not my primary language and what I wrote is hard to understand, but in all honesty I am not sure what are you arguing for (or against). If you want to keep spaces in your files then rest assured that nobody here wants to take that away from you. I am asking for more options, not less. Therefore, please stop diluting the topic with pointless and/or obvious comments.
+
+@sharwell
+
+So once again, I only want an editor option to not touch beginning of line indentation, variable name indentation, and comment indentation -- it is irrelevant whether those are done with TABs, spaces, or a mixture of the two -- I want it preserved as I typed it.
+
+I am really surprised to hear that something like that cannot be done while still keeping all current options.
+",uncivil
+1016,535897521,"> > Instead of thumbing down like twitter and facebook kids, show me I'm wrong 🥇
+>
+> Sure.
+>
+> I'll go issue by issue.
+
+Thank you
+>
+> > Spoiler: no template i have no time to waste
+>
+> Firstly, the Angular repository receives **hundreds** of issues a day. The issue template ensure that the report is structure so the team can understand the issue quickly.
+>
+
+The issue is Angular then. Hundreds of issues at day you say. A stable and mature and professional product after all these years shouldnt. Thats the damn problem.
+
+I mean... what kind of working product in IT receives ""hundreds"" of issues each day....
+I once developed a C# utility library which was used for most of the tasks in the main programs of my company and so, used on customers machines. Given enough time to test it, It worked very well and the problems related to it were quite little and I had to put hands back into it like 8 times in 5 years for something that was trouble and not expanding it with new required functionalities. But it was used in companies with thousands of workers, in our company and in mostly all of our software.
+
+The functionalities where broad and large since in C# you can do anything, it was about managing file i/o, mail sending receive, attachments management, network synchronicazion (RabbitMQ and other queue managers of IBM if I remember well), database CRUDS, serialization (xml, json), automation of tasks, orchestrating various windows services through network and more and more.
+
+This has to do one thing: Web dev, yet it gets hundreds of issues each day, like web dev has changed much in the last years (and it's not, the only thing it changed is that anyone felt to be a great programmer and to excrete out a new js framework like it would be the new holy grail of web dev).
+So this means the whole framework is unpolished, untested and lazy coded.
+This [sums it up really well](http://imgs.xkcd.com/comics/standards.png)
+
+> > Problem: Reactive forms
+> > div with [ngClass] directive:
+> > `<div class=""custom-control custom-checkbox"" style=""padding-left:80px; padding-top:30px;"" [ngClass]=""{ 'd-none': f.somereactiveformcontrol.value !== '1' }"" >`
+> > f is a getter in .ts file that returns all controls (and work everywhere else)
+> > d-none is bootstrap display:none class
+> > f.somereactiveformcontrol.value is a select/option dropdown which if !==1 shows div else hides it as you can guess
+> > When dropdown activated manually it works
+> > when the dropdown changes because changed from code (using your (change) method binding)
+> > it doesn't change
+>
+> Because you change the DOM, but didn't change the `ControlValueAccessor` behind it. I suggest you use [`f.somereactiveformcontrol.setValue`](https://angular.io/api/forms/FormControl#setvalue) instead.
+>
+
+And? It's matter of the framework taking care of it because of two way data binding (check below), not my worry, otherwise I could as well do things on my own like I always did.
+
+But there is an even more FUNNY thing. I AM ACTUALLY ALREADY USING setValue even before writing this post!!!
+
+This is the actual code:
+
+on the changing select element:
+`(change)=""onClienteChange($event)""`
+
+```
+onClienteChange(e) {
+const customer= this.getCustomer(
+e.target.value.toString()
+);``
+
+``this.orderForm.controls.paymentMethod.setValue(
+customer.paymentMethod
+);
+}
+```
+
+
+
+
+So to follow up your discussion, I am already using the recommened method.
+
+> > I'm fed up the whole framework is filled with this crap. Why you even do double way binding if works half the needed cases? Don't even make a framework at this point
+>
+> No, Angular does not have two-way binding. AngularJS does. (Even the `[()]` thingy is one-way binding underneath.)
+>
+
+https://angular.io/api/forms/NgModel
+Quoting from official website:
+
+> If you have a two-way binding with [()] syntax (also known as 'banana-box syntax')
+
+If they make fool of me it's not my fault
+
+> > I've read about observable something, but why would I use the whole framework if I had to use another framework and do my own implementation? It has no fucking sense.
+>
+> RxJS is not a framework. It's library which enables reactive programming in Angular.
+>
+
+It's the same. Angular should leverage it to avoid me pulling hair or doing heavy lifting. Instead it leaves you clueless with these kind of things and stupid documentation which is a copy paste from semi working code samples from tour of heroes which in some case alre also wrong and with errors in it.
+
+> > If the customer didn't specifically asked for angular I would have thrown this piece of trash in the toilet long time ago
+> > How to solve
+>
+> I'm not able to reply on this one.
+>
+> > EDIT: Thumbs down my ass, it's reality that smacks your face 👍
+>
+> [This is not cool.](https://github.com/angular/angular/blob/master/CODE_OF_CONDUCT.md)
+
+Angular is  [NOT COOL](https://medium.com/hackernoon/why-angular-made-me-quit-web-dev-f63b83a157af)
+
+And about the above article, I can second and confirm personally by experience EACH SINGLE point showed. It's all true and still relevant to the most up to date version of the angular framework.
+
+This long reply is to show that I'm not just an angry fool, lot of people is fed up with it and it actually is an half baked crippled tool
+
+Yeah @thetric don't cry in silence and show us your strong arguments against my point
+",uncivil
+1017,567511905,"XDDDDD careful. microsoft now owns github too and they also take direct orders from jerusalem. your account will be vanished in no time. their petty feelings are way above yours so hush now
+",uncivil
+1018,483838903,"I think it's quite stubborn to say you know what your users want.
+
+It's also quite naive to tell users they must it your way. They will abandon your product.
+
+I have Jupyter, it's not for serious programming. Also, I have Jupyter Notebook. It's works very nice, have you tried it?
+
+
+
+",uncivil
+1019,380814894,"I read you... I am a Software Engineer, I am that senior level guy you speak of... I have cried out Angular pains in the past. Currently, I'm crying out about ng-content multiple projections. And I cant nor wont argue your individual points but I do come to bring my success to the table:
+
+It has proven well worth the pains of ""extra"" setup and the ""extra"" jumping through hoops (depending on how you look at it). In so many ways, you do have to change your approach, and your past knowledge may work against you. I'm so thankful that Angular took it's giant leaps and they make sense to me now and I wouldn't do REACT or any things else but Angular.
+
+I've now trained two people on Angular, who knew nothing of Angular before and also are Junior developers. It was and is sooooooooooooooo easy for me to stick them in Angular projects because they only have to concern themselves with the limited scope of just the small components they touch. Angular makes my life easier to work with other people, it does.
+
+So, sorry I don't have small debate points and I don't blame you for having your point of view. However, I do see much evidence that you are trying to crash through head first through Angular and I see it as you feel it should just work the way you want it to... You also want some Angular Elements to make things easier, and you want Angular to just be easier so maybe you'll have to figure less out........... MY OPINION: it's called computer science and this job takes GREAT amounts of attention to details and great amounts of learning. A lot of reading, a lot of separating symptoms from causes, and you cant just stay junior at it....... You either consume it all OR you will be ""wingin' it"" and fighting the current of how things actually work versus how you want them to work.
+
+That all said, I too have written ""why does Angular suck now"" entries BUT I have since edit every comment. I just about have to hold myself back from saying how much I love Angular now... You think of someone in your head that lent you a great deal of free knowledge and how humble it made you feel, and thats how I feel about Angular, they done right for all of us in the BIG choices they have made for us all.
+
+Good luck. Farewell.
+",uncivil
+1020,585408569,"@mikedn
+
+Tanner acted in good faith by asking questions to the best of his understanding. Telling him that he doesn't know what he's talking about is unacceptable. First of all, it's not an insightful comment from your end. If you want other people to learn, you need to give them more information beyond ""you're wrong"". But more importantly it's just plain rude. You're basically sending him the signal of ""you're not welcome here"".
+
+But instead of apologizing or even just letting that feedback sink in, you're now trying to turn the tables by saying you got victimized by Tanner because he asked you a technical question and that it's unreasonable from our end to ask you to be respectful in your responses to him.
+
+You're more than welcome to continue to contribute to .NET. But I'll be clear: if we observe behavior like this in the future, we'll ultimately block you. We can't have other contributors stop engaging with us because of your behavior. While your contributions are valued, they don't warrant losing other contributors as collateral damage.
+",uncivil
+1021,513752383,"@JEJ0
+
+https://github.com/microsoft/vcpkg/blob/7d72108b9a09e92342ff695c074766fb068049df/docs/about/privacy.md
+
+>  I'd focus less on Norton, per se, based on these prior reports.
+
+This is the incorrect approach based upon your issue.
+
+Because:
+
+> Your software (Norton) has established a false positive in it's threat detection.
+
+And one single other bug report:
+
+> Specifically, #3345 is clear that it is much more widespread.
+
+Does not validate your position. Your logic fails to accommodate the fact that AV software (especially badly maintained, poorly coded AV software) is highly prone to false positive detection rates. The simple solution since the false positive problem was identified (decades ago) has been to report the false positive to the manufacturer using (commonly) their automatic reporting tool.
+I have already suggested that you do this and yet you persist to assert that your problem is one of Microsoft's making.
+
+>  I was, and am, surprised that Microsoft is recommending a solution that performs telemetry by default.
+
+I'm sorry but if you were unaware, telemetry by default is how Windows 10 is shipping too. It is the default position of Microsoft products to do so.
+If you do not like this behaviour (and I personally find it repugnant) then turn it off. The method to do so, as already mentioned is `-disableMetrics`.
+
+> Now, can I fork the code to do whatever I want? Sure. Can I propose a fix? Sure.
+
+Both rhetorical questions.
+
+> Does that change the surprise at the telemetry by default and the lack of visibility, or that this has been reported for over a year?
+
+And yet according to your report:
+
+> This is not the level of security awareness I expect Microsoft to have.
+
+Please don't attempt to change the topic of this thread. We get it. You don't like metrics.
+False positive detections by AV products have nothing to do with Microsoft's level of security awareness. You can report false positives to AV product manufacturers. And you can also turn off vcpkg's metrics using a single switch. This in turn should prevent the false positive triggering.
+
+Let us know how you get on.
+Thanks.
+",uncivil
+1022,490093846,"3 month to make an installer for an app)) that's nice)
+",uncivil
+1023,690239866,"You got us. It's a joke.
+",uncivil
+1024,567431098,"It was removed all because of this one guy: https://github.com/microsoft/vscode/issues/87268 and he prob think that what he did is funny.
+",uncivil
+1025,133650026,"On 22 Aug 2015 08:33, ""samira afzal"" notifications@github.com wrote:
+
+> HI all,
+> I wrote the following code:
+>
+> import pandas as pd
+> data= pd.read_csv(open(home/maxinet/Desktop/1.csv))
+>
+> and i got this error:
+> File """", line 2
+> data= pd.read_csv(open(home/maxinet/Desktop/1.csv))
+> ^
+> SyntaxError: invalid syntax
+>
+> could you plz guide me.
+
+I recommend you finding another tool where you can work with easily without
+headache yourself with this particular one. This is what I did myself.
+
+Good luck
+Martin
+
+> —
+> Reply to this email directly or view it on GitHub.
+
+",uncivil
+1026,567480889,"> While yes, it's stems from Christianity, nowadays it's completely secular..
+
+My understanding is that he was actually upset of the pagan origins :man_shrugging:
+",uncivil
+1027,558868946,"If you're going to insist on the autoupdate thing, couldn't you just do it once per month, at a random number of cumulative hours delay (say, 1-12) after startup, so that it doesn't function as an ad hoc ""user has launched the app"" telemetry event to everyone watching and logging the network?  It would still work just fine, and wouldn't be transmitting user activity on every launch.
+",uncivil
+1028,659431435,"A thumbs down isn't enough on this one. There's zero tolerance for backwater attitude @mahen23. Reporting.
+",uncivil
+1029,402755130,"> n other words you want someone else to do the work for you
+
+I don't have enough spare time for ""GitHub activities"".
+You got the report and the working samples.
+That's all for now.
+cheers
+",uncivil
+1030,360228242,"@ghost you come off as quite hostile.
+
+Personally as someone that has been interested in the Godot project for quite a while, but who has never used GDScript and only used a little bit of C# I am much more inclined to use C# than GDScript because C# is a transferable skill.
+
+I think this rings true for others too.
+
+Like @reduz said, open source works by people doing what they feel like.
+
+I feel like I've seen you troll (that's what your comments amount to really) other GitHub projects also but I won't bother to check. Life is too short 👋🏻
+",uncivil
+1031,598375439,"Just because the software is open source doesn't mean we aren't paying for it. Many of us (myself previously included) pay a monthly or yearly fee for Terraform/TFC and in term expect support and timely software updates. The fact that Hashicorp rarely if ever shares roadmaps or any kind of even a guess at a timeline quite frankly makes it unusable for business critical services, such as the infrastructure backing software company's services. The lack of communication on one of, if not the most requested feature of the last 3-4 years is not something to appreciate.
+",uncivil
+1032,817095735,"> The harm to the ecosystem (and Node itself) is to great to invite in Yarn 1 as a trojan horse without such a commitment.
+
+That's what I previously meant by this trust thing. Not only is your comment extremely insulting to the work my team is doing, you keep going and rambling ""we caAaAn't truUust theEem theEey're the deviIil in disguiIise"". I find this behavior ridiculous, entitled, and generally not up to the standard our community should strive for.
+
+Again, we opened this PR because we saw a way to improve Node by this partnership, and we went with it. We certainly don't have anything tangible to gain from it, except an increased maintenance load. If the response is for a set of people to feel justified in harassing a project, let me say I'm disappointed.
+",uncivil
+1033,374157587,"There is no situation that needs help.
+You need to stop acting like 3-year old.
+Grow up, get your sh*t together and stop spamming.
+",uncivil
+1034,552056351,"> You may have more luck by doing a PR with that ""simple test"" rather than asking us to do it for you.
+
+yes the debt is too big to resolve, so lets never fix it @mrdoob .  Why not start here?  If I do a PR to fix this issue will get any traction? Or if i add a switch to light probe to turn on/off like shadows and transparency?
+
+> well, you know, a bunch of IF-s in the shader that almost noone would need any way... so, probably not.
+
+@makc
+Single if.  You also turn off other features like shading, and transparency.  Why not make this new undocumented featured(only example) that effect primary lighting switchable?
+
+> no flicker here at all
+
+@makc
+Well great let me just ship your computer around so everyone can use it. Or even better we will buy everyone a plane ticket and then can come stand in line to use your computer where the software does work.
+",uncivil
+1035,812068171,"> What will the planned future of the Yarn v1 be? Every project, which was once feature freezed, is to be sunset.
+
+It's fairly frustrating to see my words being repeatedly [ignored](https://github.com/nodejs/node/pull/37277#issuecomment-775586604). Perhaps consider that the idea may have been tossed around *a few times already* (including on this very repository, and in this very thread) and that there's a reason why the Yarn core team is doing a PR adding Yarn 1 (which acts as a jumper for both v1 and v2 users), and not Yarn 2 (which does not).
+
+If we are to work together for the sake of our users I'd expect to see trust go both ways.
+",uncivil
+1036,547520973,"> Your build had silent errors before. I'd say that's much worse than a temporarily broken build.
+
+""I'd say that's much worse than"" sounds like you did me a favor, but all I got was extra work.
+
+> If you are using a lockfile, then it was an explicit change you made (upgrading lerna) that caused the breakage
+
+The whole point of SemVer is that this ""explicit change"" can be made by a machine. The author of a library categorized upgrades into breaking and non-breaking. Software like renovate can then pick certain updates and apply them automatically based on this categorization.
+
+> If you're not using a lockfile, then the only one to blame for your builds breaking ""without warning"" is yourself.
+
+The condescending attitude aside, a lockfile alone does not help here. Updating lerna necessarily means my lockfile changes. My direct usage of yargs was ""protected"" by the lockfile, because the selector `yargs@^12.0.1` still gave me 12.0.5 at `node_modules/yargs/`. But without forced hoisting (and thus forced conflict resolutions) that has no impact on what is in `node_modules/lerna/node_modules/yargs/`
+
+> not a dastardly plan on my part to cause you pain
+
+I am not saying you planned this.
+Your update broke something for some consumers without being SemVer major. That is unfortunate, but it's a mistake that can happen.
+However, your reaction to the mistake being brought to your intention is somewhere between condescending and hostile.
+You could have said ""sorry, this was not intended, let me roll back and re-release as 4.0.0"" and it would be fine.
+You could have said ""sorry, I didn't consider that the yargs API practically becomes part of the lerna API, I will make sure that future SemVer major updates of yargs only happen in SemVer major updates of lerna""
+Instead you said that it's good that your mistake broke my build.
+
+",uncivil
+1037,596154823,"@rocnogu There is no need for personal insults or caps. You may want to go over the [Contribution Guidelines](https://github.com/freeCodeCamp/freeCodeCamp/blob/master/CONTRIBUTING.md) and read the [Code of Conduct](https://www.freecodecamp.org/news/code-of-conduct/).
+
+1. Do you get any error messages in the console when you try to switch modes?
+
+2. Can you try in [Incognito mode](https://support.google.com/chrome/answer/95464) and/or in Firefox just to test?
+
+I can't reproduce it. So we need something more to go on.
+",uncivil
+1038,39850,"I think that the docs are for documenting golang. I do not think they are the place for political rhetoric. I do not open a Webster dictionary and see an ad asking for donations to a political party. I see definitions. Furthermore, it is illegal for foreigners to donate to political parties. AT LEAST remove the banner for people that are not in the US.
+
+The banner:
+![banner](https://user-images.githubusercontent.com/34998433/85660680-e0508100-b6f0-11ea-9587-dc42d3ed6b96.png)
+
+If this is not the right forum to discuss this issue, please direct me to it.
+
+
+
+",uncivil
+1039,554333376,"LOL, no way. You have to be nuts. My commit is PUBLIC DOMAIN, do with it as you please.
+",uncivil
+1040,777670985,"Anyone else has opinion that cashing is just a crutch? Looks like, it is just attempt to run away from the problem and try to hide it.
+
+Guys from Flutter team, you spend tone of time to learn algorithms, data structure, low level programming for get work in Google and for now is it actually that type of solution you wanna provide being hired by the one of the best company in the world? Crutch?
+
+All application on flutter just lagging, even Google applications, everyone understand that cashing would probably decrease lagging, but not remove them all. When you solve this issue(instead of provide workaround) Flutter will be best SaaS decision in the world, even for iOS users!
+
+Believe in you guys.
+",uncivil
+1041,548334237,"> @mdtauk : I do NOT need to upgrade, you miss the point. Avoiding Win10 is intentional, because I don't want my PC to have buggy, ugly, spying rubbish.
+>
+> Tech Q: What ""exciting and unique"" you have in Win10 that your GUI lib(!!!) cannot work on Win7? Obviously if your lib so ""independed"" from platform, there is no any problem to support it on Win7. Moreover: Win10 is FAR from be the dominating OS, at least 50% users have Win7. So your library intentionally abuse millions of Win7 users in favor of... what? Pathetic Win10?
+
+The short answer is that WinUI relies on the underlying OS, even in it's decoupled state.  WinUI is the UI framework, and can be updated faster than the OS.
+
+As for your views about Windows 10, you are entitled to believe what you like, but Windows 7 is coming to an end, and if you do not wish to remain a Windows user, there is macOS and various forms of Linux, for you to choose from.
+
+I however suspect your comments are a little disingenuous, but I hope I have provided an accurate answer to your query.
+",uncivil
+1042,735684970,"11/10, want to see this happen! 💜
+",uncivil
+1043,374155138,"Your issue doesn't contain a single bit of useful information anybody could act on.
+At best the problem is that your expectations are wrong and you blame Angular instead of adjusting yourself,
+and the worse case is that you are just spreading spam.
+Angular works great for most. If it doesn't for you it's highly likely the problem is on your end.
+
+",uncivil
+1044,502882993,"Oh, so you monitor them, but completely ignore them. Much better.
+
+Is it acceptable that two core Microsoft offerings DevOps and Service Fabric are currently out of sync?
+",uncivil
+1045,467622310,"Jesus, I wish you guys STFU and get back to work instead. I'll have to unsubscribe from the ticket because it's unbearable to get emails with flame wars. Too bad maintainers do not mute the thread.
+
+@gunan @caisq @sanjoy Could you please do something about it ?
+",uncivil
+1046,670572986,"This is really frustrating, Our IT Team doesn't want us to Enable developer mode, this restriction is not required. It would be better if they lift off this restriction.
+",uncivil
+1047,735683279,"rooting for you @filmgirl 🎉
+",uncivil
+1048,548536501,">  It's unethical and inappropriate if you frequently try to push or manipulate forum participants into joining your religion/philosophy.
+
+Continuing to offering help is not pushing religion.  Nor is it unethical to provide free support to people who can choose to take it or not.
+
+>If I followed your recommendation and adopted your religion/philosophy, then it would substantially damage the upbringing of my children.
+
+Then don't.  Nothing about what i've said insists that you do this.  It merely offers you the choice of doing this.  It's not unethical to make ones time available to help people freely if they are interested.  I do this in many avenues in life.  I freely offer tutoring for many different subjects.  I freely offer assistance with learning different programming languages.  I freely offer time and information toward contributing to some FOSS projects.
+
+> it would be monstrous to harm my children in that way.
+
+So you're saying *i'm* operating unethically for offering my time and knowledge to people who may want it because if *you* were to take me up on it it would hurt you?  Does that not strike you as ridiculous?
+
+Should i also not offer free tutoring for interested students because if some were to take it they might be negatively impacted in other avenues of life?
+
+Does it not make more sense (and seem more ethical) to have this be available and to leave it entirely to you (and others) to decide if you want to take it or not?  I don't see how this is at all a religion, but i certainly can see how it's a philosophy.  And it's a philosophy that has worked well for dozens of people out there.  I think it's a good thing that I can help out, and I'll continue to do so and will continue to announce this possibility so that if there are people out there (even if its not you) will know and can take advantage of it if they wish.
+
+Cheers!
+",uncivil
+1049,663869330,"I hate that these things never actually get fixed or resolved.
+
+WTF?
+",uncivil
+1050,483869049,"If you don't like the new window, that's fine.
+
+If you don't want to give feedback on the new idea, because you just want us to fix the original REPL, that's fine too.
+
+The likely plan moving forward is to replace the REPL with the new window though.
+
+Something is obviously off with this plan (at least for you).
+
+I'm trying to figure out what you don't like about it.
+
+The information I have so far is:
+- The UI isn't what you wanted
+- It's slow
+- You might as well just use Jupyter
+
+",uncivil
+1051,736303523,"This explains a lot and why microsoft made ton of bad decisions recently, maybe the people at the top are delusional?
+
+now question, how she got the job?
+
+",uncivil
+1052,544712309,"Your build had silent errors before. I'd say that's much worse than a temporarily broken build.
+",uncivil
+1053,518766163,">
+> please halt yourself before assuming the motivations of others and attacking individuals personally or their work.
+
+Please feel free to point out what I said that was even remotely an attack on *anyone* or an assumption of motivations?
+Or did you perhaps recognise the truth of what I wrote and felt defensive?
+",uncivil
+1054,567500290,"Please add also an ultra-offensive debugger that shitstorms you on every error
+",uncivil
+1055,776192297,"I'm grateful to the Flutter developers for their work on Flutter, and for making it available for free.
+
+A few points.
+
+- On the Flutter site, this issue is still not clearly shown. I spent a week of full time effort learning Flutter, only to find out about this issue hidden in the shader optimization article. I feel misled because everything I first saw on homepage etc, promised 60 FPS and native performance. I think its bordering on unethical to not make this problem clearly known to new developers.
+
+- This issue should be a higher priority than anything else, instead it still seems like its a P3 or lower. No one is even assigned to this issue yet?
+
+- There should be an ETA / timeline for a resolution.
+
+It looks like there's a solution available - running animations in the background to warm up the shader. We just need something around that to be made official.
+",uncivil
+1056,699636513,"No, it got locked because people disagree with your ignorant stance.  I am now learning RUST even though I absolutely loved golang strictly because of not just your ignorant stance of adding this banner but also because of your even more ignorant inability to have an adult conversation about it.  I will not participate in a dictatorship as you're too dumb on the matter to be my leader.
+",uncivil
+1057,631231404,"@dansiegel your tone and style of commenting is violating our [Code of Conduct](https://dotnetfoundation.org/about/code-of-conduct). We have marked the problematic comments as abusive and blocked you for 7 days. If this behavior persists, we’re going to block you permanently.
+
+It’s OK to be passionate but attacking another open source project for any reason is not okay. This is not the kind of community we want to have and such behavior will not be tolerated.
+",uncivil
+1058,558863714,"As already stated, if that form of ""telemetry"" is an issue for you feel free to block the network access or create a version of Atom that doesn't check for updates. This isn't something the Atom team is currently interested in changing though.
+",uncivil
+1059,718241850,"This isn't how we have technical disagreements. No amount of technical correctness can make up for treating other people poorly; please don't repeat that behavior. I will close both of these PRs. I'm available via slack or email if more explanation is needed. (additional note: please seek assistance rather than escalating.)
+
+Instead, I've asked @caesarxuchao to send a fix for the issue in question.
+",uncivil
+1060,808872016,"@the-Arioch I don't think this is the right place to discuss OMV related things.
+
+> Well, ranting aside, i am rather puzzled with your device: ""/dev/disk/by-label/My\x20Passport\x20Blue""
+> Where do you even get this hex substitution from???
+
+Escaping blanks is not my idea, it is used by every userland command that processes mount points, e.g. `mount`.
+Either `systemd` want to have escaped paths in mount units too, there is a special command to convert
+paths for you, see `systemd-escape`.
+
+> Salt seems extremely fragile here, probably no one else except for OMV5 uses it for partitions.
+> Maybe OMV6 could do it outside Salt?
+
+OMV already workarounds this issue, thus it is not affected by this reported issue here.
+
+> I mean, before Salt porject might decide to drop this functionality that almost no one use,
+> instead of burden of maintaining it for OMV5 alone....
+
+I don't think Salt will drop `mount.mounted` because it is a somewhat essential functionality of Linux systems.
+
+> Now, to be frank, even this would NOT be enough, because i can have multiple disks with the
+> same partition label. Like many USB thumb drives with ""DATA"" partition. I can even have several
+> partitions with the same name on singe disk!
+
+You can do that, but don't blame the software then. Using USB devices in a NAS is no good idea, but that's a different thing. IMO devices using in a NAS should be already connected to the NAS, no plug-and-play, this is not how a NAS is intended to work. If devices are always connected, then you will never run into the situation that duplicate labels might harm your system. This issue is user introduced and should be handled by them.
+
+If you want to discuss this issue please open an issue in the OMV Git repository.
+",uncivil
+1061,32497,"I realize there are  a number of related issues. However, some where about ReadonlyArray, some didn't see directly related at all even though it was pointed there.
+
+Also, this is a much smaller example, just a single line of code really:
+
+[Playground link](http://www.typescriptlang.org/play/index.html#code/GYVwdgxgLglg9mABAEwKYFs4AoZQFyICSUqATgIYBGANqgDxgjqVkB8AlAY82QNoC6iAN4AoROMQQEAZyiJypCgE9EAXkQBBReSUA6GNK3KcUdogD8iXIgK9d93PwDcIsRID07xABFU1GCwUJFy6tGAA5lAAFlbS8oiypDARiOio0XDIADSIlCByYHCIZKRwpLmoEOQg0qiIcMCIUEoADnUARORgSu2IwGWIYG7ipOkgpEgKyrro5C1YSKqsg6GoEdHsLgC+IkA)
+
+```js
+function demo(it: Iterable<number>): number[] {
+// THIS LINE: ""array"" is any[]
+const array = Array.isArray(it) ? it : [...it];
+// Deliberate: n.length is a string method, but no error because of type ""any"" for n
+return array.map(n => n.length);
+}
+```
+
+I know people will point to this ir that implementation or design decision detail &mdash; honestly guys, you got it REVERSED. The tool should serve the purpose, not the other way around!
+
+That the array loses all it's type information in such a simple example is A BUG.
+
+And **it is possible** to do much better: [See here!](https://flow.org/try/#0GYVwdgxgLglg9mABAEwKYFs4AoZQFyICSUqATgIYBGANqgDxgjqVkB8AlAY82QNoC6iAN4AoROMQQEAZyiJypCgE9EAXkQBBReSUA6GNK3KcUdogD8iXIgK9d93PwDcYiQHo3iACKpqMFhQkXLq0YADmUAAWVtLyiLKkMOGI6KhRcMgANIiUIHJgcIhkpHCkOagQ5CDSqIhwwIhQSgAOtQBE5GBKbYjApYhgruKkaSCkSArKuujkzVhIqqwDIajhUewuAL4iQA) I'm only pointing this out because at times the responses sound like ""We tried everything but it is just not possible"" when the competition shows that it *is* actually quite possible.
+
+",uncivil
+1062,87341,"When I was young our village was invaded and robbed at night and since then I am afraid of going out anywhere when it's getting darker. VS Code dark theme reminds me of this situation, so please remove it immediately, because for me dark theme = death.
+
+",uncivil
+1063,360225453,"Whether it was a mistake or not is not decided by you, but the community as a whole. You are not the center of the universe. The community not only is happy about it, but posts about C# are by far some of the most shared and viewed. In fact, it also attracted many new developers.
+
+You also act as if I had any control of what contributors work on. This is an open source project, contributors work on what they want, when they want. It's not a company where I pay them to work for me and they do what I order them to.
+
+That left aside, of the main contributors (the ones writing most of the code) none changed their priorities to focus on mono instead of their usual areas.  The link you posted clearly shows that.
+
+I have no idea what you are so angry about, just chill man.
+",uncivil
+1064,272424908,"Do I like being productive, absolutely. That means, never using WCF.
+
+I think I would rather become a rice farmer than ever touch WCF again.
+",uncivil
+1065,567423993,"On the other hand snowflake is the best symbol for spineless corporations bowing down to any random activist complain.
+",uncivil
+1066,393350534,"P.s. sorry. Just too many people around.
+",uncivil
+1067,548677459,"@CyrusNajmabadi
+
+>> You have a knack for justifying inaction.
+>
+> I've already offered my time toward helping you fix this in a paired manner. If you view my willingness to work with you to fix hte issues you care about as ""inaction"" then that's on you.
+
+I was talking about the Microsoft team's inaction on this bug, not yours.  You seem strangely passionate about defending their inaction.
+
+To be clear, I think that contributing to open source is a wonderful and worthy endeavor.  We need more of that sort of collaboration in society.  But as @verelpode pointed out, we all have a finite amount of time and other priorities in life.  When it comes to side projects, we have to be selective about what we say yes to.  We might have time to contribute to some but not others.  I think it's unreasonable to say that, because I'm a Visual Studio user and want a bug fixed, I must go down the rabbit hole of learning Roslyn.
+
+While I appreciate your offer of assistance, I fail to grasp the practical value of it.  We're all programmers here.  If I'd go to the trouble of learning Roslyn then , for such a small improvement, I may as well figure it out myself.  If you sincerely want to help, rather than just pay lip service to the concept of helping, then please just fix this bug.
+",uncivil
+1068,544708455,"For every version prior to 3.18.x ""only applies to"" meant ""is ignored otherwise"". Now it means ""breaks your build"". That's not SemVer minor. I don't even care if that is directly in your code or was pulled in via a dependency bump. Minor versions of lerna should not break my build.
+
+",uncivil
