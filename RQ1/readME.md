@@ -35,7 +35,7 @@ Additionally, you need to download the necessary NLTK resources.
 ## Usage
 
 ```
-python script.py <datapath> <modelpath> <data_type>
+python run.py <datapath> <modelpath> <data_type>
 
 ```
 
@@ -49,6 +49,6 @@ python script.py <datapath> <modelpath> <data_type>
 ## Example
 
 ```
-python script.py data.csv bert-base-uncased SE
+python run.py data.csv bert-base-uncased SE
 
 ```
