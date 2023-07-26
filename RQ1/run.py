@@ -1,30 +1,41 @@
 import string
-
 import pandas as pd
-from compute_similarity import compute_similarity
 import numpy as np
+import torch
 from transformers import AutoTokenizer, AutoModel
+from sklearn.metrics.pairwise import cosine_similarity
+from scipy.stats import wilcoxon
+import sys, re, nltk, argparse
+from nltk.corpus import stopwords, wordnet
+from nltk.tokenize import word_tokenize
 
-import sys
-import string
-import re
-import torch 
-
-datapath = sys.argv[1]
-modelpath = sys.argv[2]
-type = sys.argv[3]
+nltk.download('all')
 
 
-# Set the device
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+def soft_decay(embeddings):
+    """
+    Apply soft decay to input embeddings.
 
+    Parameters:
+        embeddings (torch.Tensor): Input embeddings.
 
-tokenizer = AutoTokenizer.from_pretrained(modelpath)
-model = AutoModel.from_pretrained(modelpath)
-model.to(device)
+    Returns:
+        torch.Tensor: Embeddings after soft decay.
+    """
+    u, s, v = torch.svd(embeddings)
+    max_s = torch.max(s, dim=0).values.unsqueeze(-1)
+    eps = 1e-7
+    alpha = -0.6
+    new_s = -torch.log(1 - alpha * (s + alpha) + eps) / alpha
+    max_new_s = torch.max(new_s, dim=0).values.unsqueeze(-1)
+    rescale_number = max_new_s / max_s
+    new_s = new_s / rescale_number
+    rescale_s_dia = torch.diag_embed(new_s, dim1=-2, dim2=-1)
+    new_input = torch.matmul(torch.matmul(u, rescale_s_dia), v.transpose(1, 0))
+    return new_input
+
 
 def text_cleaning(text):
-
 
     def remove_block_quotes(text):
         modified_text = ''
@@ -94,18 +105,13 @@ def text_cleaning(text):
             text = re.sub('@[^\s]+', '[USER]', text)
         return text
 
-
     def filter_nontext(text):
         text = remove_url(text)
         text = remove_usermention(text)
         text = remove_block_quotes(text)
         text = remove_stacktrace(text)
-        # text = remove_newlines(text)
         text = remove_triple_quotes(text)
-        # text = remove_extra_whitespaces(text)
         return text.strip()
-
-
 
     printable = set(string.printable)
     text = ''.join(filter(lambda x: x in printable, text))
@@ -115,71 +121,72 @@ def text_cleaning(text):
     text = text.lower()  # Lowercasing
     text = text.strip()
     text = filter_nontext(text)
+    text = text.strip()
+
     return text
 
 
-def get_data():
+def load_data(datapath, data_type):
     dataframe = pd.read_csv(datapath)
-    print(dataframe.keys())
-    # important keys are Sentence, Replacement, and Negative
-    # We will drop other keys
-
     dataframe = dataframe.drop(['Id', 'Fig_Exp'], axis=1)
 
-    print(len(dataframe['Sentence'].values.tolist()))
-
     na_free = dataframe.dropna()
-    print(len(na_free['Sentence'].values.tolist()))
     dataframe = dataframe[np.invert(dataframe.index.isin(na_free.index))]
 
-    print(len(dataframe['Sentence'].values.tolist()))
-
-    if type == "SE":
+    if data_type == "SE":
         dataframe = dataframe.drop(['General'], axis=1)
         dataframe = dataframe.dropna()
         dataframe = dataframe.drop(['SE'], axis=1)
-    elif type == "General":
+    elif data_type == "General":
         dataframe = dataframe.drop(['SE'], axis=1)
         dataframe = dataframe.dropna()
         dataframe = dataframe.drop(['General'], axis=1)
     else:
         dataframe = dataframe.drop(['SE'], axis=1)
         dataframe = dataframe.drop(['General'], axis=1)
-
-    print(len(dataframe['Sentence'].values.tolist()))
 
     return dataframe
 
 
-dataframe = get_data()
-count_a = 0
-count_b = 0
+def compute_similarity(sentences, embedding_type, model, tokenizer):
+    """
+    Compute cosine similarity between sentence embeddings.
 
-group_a = []
-group_b = []
+    Parameters:
+        sentences (list): List of sentences to compare.
+        embedding_type (str): Type of embedding to use ('soft_decay' or 'default').
+        model: Pretrained transformer model.
+        tokenizer: Pretrained tokenizer.
 
+    Returns:
+        list: List of cosine similarity scores.
+    """
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-for i in range(len(dataframe['Sentence'].values.tolist())):
-    sentences = dataframe.iloc[i].values.tolist()
+    def mean_pooling(model_output, attention_mask):
+        token_embeddings = model_output[0]
+        input_mask_expanded = attention_mask.unsqueeze(-1).expand(token_embeddings.size()).float()
+        sum_embeddings = torch.sum(token_embeddings * input_mask_expanded, 1)
+        sum_mask = torch.clamp(input_mask_expanded.sum(1), min=1e-9)
+        return sum_embeddings / sum_mask
 
-    texts = []
+    sentence_embeddings = []
+
     for sentence in sentences:
-        texts.append(text_cleaning(str(sentence)))
+        encoded_input = tokenizer(sentence, padding=True, truncation=True, max_length=128, return_tensors='pt').to(device)
+        with torch.no_grad():
+            model_output = model(**encoded_input)
+        sentence_embedding = mean_pooling(model_output, encoded_input['attention_mask']).detach().cpu().clone()
 
-    cos_similarities = compute_similarity(texts, "soft_decay", model, tokenizer)
-    format_float0 = "{:.3f}".format(cos_similarities[0])
-    format_float1 = "{:.3f}".format(cos_similarities[1])
-    # print(f'{format_float0}, {format_float1}')
+        if embedding_type == "soft_decay":
+            sentence_embedding = soft_decay(sentence_embedding)
+
+        sentence_embeddings.append(sentence_embedding)
+
+    similarity = cosine_similarity(sentence_embeddings[0], sentence_embeddings[1])[0][0]
+    similarity_2 = cosine_similarity(sentence_embeddings[0], sentence_embeddings[2])[0][0]
     
-    group_a.append(cos_similarities[0])
-    group_b.append(cos_similarities[1])
-
-    if cos_similarities[0] > cos_similarities[1]:
-        count_a = count_a + 1
-    else:
-        count_b = count_b + 1
-
-print(count_a / (count_a + count_b), count_b / (count_a + count_b))
+    return [similarity, similarity_2]
 
 
 def cliffs_delta(group_a, group_b):
@@ -210,46 +217,85 @@ def cliffs_delta(group_a, group_b):
     return cliffs_delta
 
 
-
-
-result = cliffs_delta(group_b, group_a)
-print("Cliff's delta:", result)
-
-from cliffs_delta import cliffs_delta
-d, res = cliffs_delta(group_b, group_a)
-
-print("Cliff's delta:", d, res)
-
-from scipy.stats import wilcoxon
-
-def one_tailed_wilcoxon_signed_rank_test(group_a, group_b, alternative='greater'):
+def compute_effect_size(group_a, group_b):
     """
-    Perform a one-tailed Wilcoxon signed-rank test for paired samples.
+    Compute the effect size using Cliff's delta.
 
     Parameters:
-        group_a (array-like): Array or list containing the values of Group A.
-        group_b (array-like): Array or list containing the values of Group B.
-        alternative (str, optional): Specifies the alternative hypothesis.
-            'greater' (default) for one-tailed test with Group B having higher values.
-            'less' for one-tailed test with Group A having higher values.
+        group_a (list): List containing the values of Group A.
+        group_b (list): List containing the values of Group B.
+
+    Returns:
+        float: Effect size.
+    """
+    return cliffs_delta(group_a, group_b)
+
+
+def perform_one_tailed_wilcoxon_test(group_a, group_b, alternative='greater'):
+    """
+    Perform a one-tailed Wilcoxon signed-rank test.
+
+    Parameters:
+        group_a (list): List containing the values of Group A.
+        group_b (list): List containing the values of Group B.
+        alternative (str): Alternative hypothesis for the test ('greater' or 'less').
 
     Returns:
         tuple: Test statistic and p-value.
     """
-    # Calculate the differences
-    differences = [a - b for a, b in zip(group_a, group_b) if a > b]
+    return wilcoxon(group_a, group_b, alternative=alternative)
 
-    # Perform the one-tailed Wilcoxon signed-rank test
-    if alternative == 'greater':
-        stat, p_value = wilcoxon(differences, alternative='greater')
-    elif alternative == 'less':
-        stat, p_value = wilcoxon(differences, alternative='less')
-    else:
-        raise ValueError("Invalid alternative argument. Use 'greater' or 'less'.")
 
-    return stat, p_value
+# Main function
+def main(datapath, modelpath, data_type):
+    """
+    Main function to process data and compute similarity metrics.
 
-# Perform the one-tailed Wilcoxon signed-rank test with Group B expected to have higher values
-statistic, p_value = one_tailed_wilcoxon_signed_rank_test(group_a, group_b, alternative='greater')
-print("Test statistic:", statistic)
-print("p-value:", p_value)
+    Parameters:
+        datapath (str): Path to the CSV file containing the data.
+        modelpath (str): Path to the pretrained model.
+        data_type (str): Type of data to process ('SE', 'General', or 'Other').
+    """
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    tokenizer = AutoTokenizer.from_pretrained(modelpath)
+    model = AutoModel.from_pretrained(modelpath)
+    model.to(device)
+
+    dataframe = load_data(datapath, data_type)
+
+    group_a = []
+    group_b = []
+
+    count_a = 0
+    count_b = 0
+
+    for i in range(len(dataframe['Sentence'].values.tolist())):
+        sentences = dataframe.iloc[i].values.tolist()
+        texts = [text_cleaning(str(sentence)) for sentence in sentences]
+        cos_similarities = compute_similarity(texts, "soft_decay", model, tokenizer)
+        group_a.append(cos_similarities[0])
+        group_b.append(cos_similarities[1])
+
+        if cos_similarities[0] > cos_similarities[1]:
+            count_a = count_a + 1
+        else:
+            count_b = count_b + 1
+
+    print("Similarity percentage:", count_a / (count_a + count_b))
+
+    effect_size = compute_effect_size(group_b, group_a)
+    print("Cliff's delta:", effect_size)
+
+    # Perform the one-tailed Wilcoxon signed-rank test with Group B expected to have higher values
+    statistic, p_value = perform_one_tailed_wilcoxon_test(group_a, group_b, alternative='greater')
+    print("Test statistic:", statistic)
+    print("p-value:", p_value)
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Process data and compute similarity metrics.')
+    parser.add_argument('datapath', type=str, help='Path to the CSV file containing the data')
+    parser.add_argument('modelpath', type=str, help='Path to the pretrained model')
+    parser.add_argument('data_type', type=str, choices=['SE', 'General', 'Other'], help='Type of data to process (SE, General, or Other)')
+    args = parser.parse_args()
+    main(args.datapath, args.modelpath, args.data_type)

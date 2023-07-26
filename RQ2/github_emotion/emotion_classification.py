@@ -7,8 +7,6 @@ from torch.utils.data import Dataset, DataLoader
 from transformers import AutoModelForSequenceClassification
 import nltk
 import numpy as np
-from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize
 from sklearn.metrics import confusion_matrix, f1_score, classification_report
 import re, sys, string, argparse, os
 from transformers import get_linear_schedule_with_warmup
@@ -198,8 +196,9 @@ def train_model(model, train_dataloader, epochs, delta, optimizer, scheduler, va
         if avg_train_loss < delta:
             break
 
-        if epoch == 0 or (avg_test_loss < val_loss):
+        if epoch == 0 or (f1 <= 0.0 and val_f1_score > 0.0) or (avg_test_loss < val_loss):
             val_loss = avg_test_loss 
+            f1 = val_f1_score
             print(confusion_matrix(true_labels, pred_flat))
             print(classification_report(true_labels, pred_flat))
             my_array_pred = np.array(pred_flat)
