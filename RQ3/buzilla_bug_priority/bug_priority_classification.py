@@ -280,7 +280,7 @@ def train_model(model, train_dataloader, epochs, delta, optimizer, scheduler, va
 
 
 def parse_arguments():
-    parser = argparse.ArgumentParser(description="Incivility Classification.")
+    parser = argparse.ArgumentParser(description="Bug Priority Classification.")
     parser.add_argument("--epoch", type=int, default=6, help="Number of epochs.")
     parser.add_argument("--delta", type=float, default=0.1, help="Delta value.")
     parser.add_argument("--batch_size", type=int, default=128, help="Batch Size.")
