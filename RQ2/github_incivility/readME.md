@@ -20,7 +20,7 @@ You can install the required dependencies using `pip`:
 
 ## Usage
 
-2. Make sure you have training and test data in CSV format. The CSV files should contain two columns: "text" (containing the text to classify) and "label" (containing the class labels). The label value should be "civil" and "uncivil".
+2. Make sure you have training and test data in CSV format. The CSV files should contain two columns: "text" (containing the text to classify) and "label" (containing the class labels). The label value should be "civil" and "uncivil". This is a binary classification.
 
 3. Run the script `incivility_classification.py` with the following command:
 

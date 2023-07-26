@@ -52,13 +52,18 @@ def load_contrastive_model(model, model_name, contrastive_flag, path_to_contrast
         # Load the state dict of the saved model
         state_dict = checkpoint['model_state_dict']
 
-        if model_name in ["bert", "albert"]:
+        if model_name in ["bert"]:
             # Filter out the 'bert' keys in the state dict
             state_dict = {k.replace('bert.', ''): v for k, v in state_dict.items()}
             # Load the state dict into the model
             model.bert.load_state_dict(state_dict)
             print(model_name, ": contrastive model loaded")
-
+        elif model_name in ["albert"]:
+            # Filter out the 'albert' keys in the state dict
+            state_dict = {k.replace('albert.', ''): v for k, v in state_dict.items()}
+            # Load the state dict into the model
+            model.albert.load_state_dict(state_dict)
+            print(model_name, ": contrastive model loaded")
         elif model_name in ["roberta", "codebert"]:
             # Filter out the 'roberta' keys in the state dict
             state_dict = {k.replace('roberta.', ''): v for k, v in state_dict.items()}

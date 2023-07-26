@@ -20,7 +20,10 @@ Install the required packages using the following command:
 
 ## Usage
 
-Run the emotion classification script with the following command:
+2. Make sure you have training and test data in CSV format. The CSV files should contain two columns: "text" (containing the text to classify) and "label" (containing the class labels). The label value should be Anger, Fear, Love, Joy, Surprise, Sadness. This is a multi-label dataset.
+
+
+2. Run the emotion classification script with the following command:
 
 
 `python emotion_classification.py --epoch EPOCH --delta DELTA --batch_size BATCH_SIZE --col COLUMN --model_name MODEL_NAME --contrastive_flag CONTRASTIVE_FLAG --path_to_contrastive_weights PATH_TO_CONTRASTIVE_WEIGHTS --output OUTPUT_FILE --train_file TRAIN_CSV --test_file TEST_CSV`
