@@ -5,9 +5,9 @@ This repository contains the data and code to reproduce the experiments from our
 
 ## Repository Structure
 
-- __/annotation__: A folder contains resources related to dataset annotation and the annotated CSV file.
+- __/annotation__: A folder contains resources related to dataset annotation and the annotated CSV file. 
 
-- __/contrastive_learning__: Implementation of contrastive learning method.
+- __/contrastive_learning__: Implementation of contrastive learning method. Before run RQ2 and RQ3, you must run the script from this folder and save the model weights which can be loaded later.
 
     - contrastive_learning.py: the script of contrastive learning.
 
@@ -15,7 +15,7 @@ This repository contains the data and code to reproduce the experiments from our
 
     - readMe.md: contains the readMe on how to run contrastive_learning.py.
 
-- __/RQ1__: Folder that contains experiments for RQ1 on LLM figurative language interpretation using cosine similarity.
+- __/RQ1__: Folder that contains experiments for RQ1 on LLM figurative language interpretation using cosine similarity. 
 
     - run.py: the script of cosine similarity and other metrics.
 
