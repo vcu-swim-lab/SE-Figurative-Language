@@ -26,8 +26,8 @@ This repository contains the data and code to reproduce the experiments from our
 - __/RQ2__: Folder that contains experiments for RQ2 on improving affect analysis via fine-tuning.
 
     - __/github_emotion__: Folder that contains experiments for emotion classifcation.
-
-   	    - emotion_classification.py: the script of emotion classification.
+    
+        - emotion_classification.py: the script of emotion classification.
 
 	    - github-train.csv: the train dataset of this experiment.
 
@@ -37,8 +37,8 @@ This repository contains the data and code to reproduce the experiments from our
 
 
     - __/github_incivility__: Folder that contains experiments for incivility classifcation.
-
-   	    - incivility_classification.py: the script of incivility classification.
+    
+        - incivility_classification.py: the script of incivility classification.
 
 	    - incivility-train.csv: the train dataset of this experiment.
 
