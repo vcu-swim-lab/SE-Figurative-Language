@@ -268,14 +268,15 @@ def train_model(model, train_dataloader, epochs, delta, optimizer, scheduler, va
         if avg_train_loss < delta:
             break
 
-        if epoch == 0 or (avg_test_loss < val_loss):
+        if epoch == 0 or (f1 <= 0.0 and val_f1_score > 0.0) or (avg_test_loss < val_loss):
             val_loss = avg_test_loss 
+            f1 = val_f1_score
             print(confusion_matrix(true_labels, pred_flat))
             print(classification_report(true_labels, pred_flat))
             my_array_pred = np.array(pred_flat)
             my_array_true = np.array(true_labels)
-    df = pd.DataFrame({'Pred': my_array_pred, 'True': my_array_true})
-    df.to_csv(output_file, index=False)
+            df = pd.DataFrame({'Pred': my_array_pred, 'True': my_array_true})
+            df.to_csv(output_file, index=False)
 
 
 def parse_arguments():
