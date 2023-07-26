@@ -61,4 +61,4 @@ The script will print the training progress, average training loss, average vali
 
 - Ensure that your system has access to a CUDA-enabled GPU if you want to use GPU acceleration for training. The script automatically checks for GPU availability and uses it if available.
 
-- The code also includes a data cleaning function `text_cleaning()` that removes block quotes, URLs, user mentions, HTML markup, non-ASCII characters, and digits. It also performs lemmatization and removes stopwords. Modify this function according to your specific needs.
+- The code also includes a data cleaning function `text_cleaning()` that removes block quotes, URLs, user mentions, HTML markup, non-ASCII characters, and digits. It also performs lemmatization and removes stopwords.

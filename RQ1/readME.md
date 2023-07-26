@@ -1,12 +1,11 @@
 # Sentence Similarity Analysis Script
 
-This Python script analyzes the similarity between sentences using pretrained transformer models and computes similarity metrics. It takes as input a CSV file containing sentences and performs the following steps:
+This folder contains Python script analyzes the similarity between sentences using pretrained transformer models and computes similarity metrics. It takes as input a CSV file containing sentences and performs the following steps:
 
-1. Preprocess the sentences to remove unwanted characters and clean the text.
-2. Load and preprocess the data from the CSV file based on the data type ('SE', 'General', or 'Other').
-3. Compute sentence embeddings using a pretrained transformer model (BERT, RoBERTa, etc.) and tokenizer.
-4. Calculate cosine similarity between pairs of sentences and apply soft decay to the embeddings if required.
-5. Compute effect size using Cliff's delta and perform a one-tailed Wilcoxon signed-rank test.
+1. Load and preprocess the data from the CSV file based on the data type ('SE', 'General', or 'Other').
+2. Compute sentence embeddings using a pretrained transformer model (BERT, RoBERTa, etc.) and tokenizer.
+3. Calculate cosine similarity between pairs of sentences and apply soft decay to the embeddings if required.
+4. Compute effect size using Cliff's delta and perform a one-tailed Wilcoxon signed-rank test.
 
 ## Requirements
 
