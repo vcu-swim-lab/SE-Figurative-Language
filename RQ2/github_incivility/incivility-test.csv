@@ -1,4 +1,4 @@
-,comment_id,comment_body,comment_code
+,comment_id,text,label
 0,270920940,"Another vote for WC on .net core. I have an entire infrastructure that is being converted to netstandard and core however we are currently deliberating what to do about not having WCF available. WCF for us means that developers can easily consume a complex api with almost no knowledge of it. Without WCF we will either have to abandon a lot of the plans or suffer a decrease in productivity.  :-(
 ",civil
 1,87328,"The removal of the santa hat, and kowtowing to a fake user, is incredibly offensive to me. Please reinstate the santa hat icon.

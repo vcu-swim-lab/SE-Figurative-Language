@@ -1,4 +1,4 @@
-,comment_id,comment_body,comment_code
+,comment_id,text,label
 0,384634593,"Hello all, my first post so go easy. I want to just say that I love Jekyll, I'm now using it on a lot of my web builds. One thing that has bothered me though, is that I've not been able to take advantage of the latest Jekyll features because a lot of the 3rd party CMS solutions I rely on for my clients use (cloudcannon, siteleaf and forestry) simply don't run the latest versions of Jekyll themselves. This forces me to have my folder structures in a really messy state and not take advantage of the latest features when developing locally. So if anyone at Jekyll could bend a few arms to get them to update that would be fab.
 ",civil
 1,383291972,"Yes! Thank goodness for progress, and @randomascii, for his incredibly helpful blog posts on analysing the data. Learned so much from him! Huge props!

@@ -39,8 +39,6 @@ Run the emotion classification script with the following command:
 - `TRAIN_CSV`: Path to the training CSV file (required).
 - `TEST_CSV`: Path to the test CSV file (required).
 
-**Note**: Ensure that you have downloaded the appropriate Hugging Face model weights specified by `MODEL_NAME` using the `transformers` library.
-
 ## Output
 
 The script will print the training progress, average training loss, average validation loss, and validation F1-score for each epoch. Additionally, it will save the predictions in the specified output file in CSV format, containing columns "Pred" (predicted labels) and "True" (true labels).
@@ -54,6 +52,8 @@ The script supports two types of fine-tuning:
 
 Ensure you have the appropriate training data for emotion classification in the CSV format, with one column containing the text data and another column containing the corresponding emotion labels.
 
-## Acknowledgments
+## Note
 
-- The script uses the Hugging Face Transformers library, which provides easy access to pre-trained transformer-based models for natural language processing tasks.
+- Ensure that your system has access to a CUDA-enabled GPU if you want to use GPU acceleration for training. The script automatically checks for GPU availability and uses it if available.
+
+- No text preprocessing is done as the original authors already provided a preprocessed dataset.

@@ -2,22 +2,18 @@ import torch.nn as nn
 import pandas as pd
 from transformers import AutoTokenizer
 import torch
-from transformers import AutoTokenizer
 from torch.utils.data import Dataset, DataLoader
 from transformers import AutoModelForSequenceClassification
 import nltk
 import numpy as np
-from nltk.corpus import stopwords
+from nltk.corpus import stopwords, wordnet
 from nltk.tokenize import word_tokenize
+from nltk.stem import WordNetLemmatizer
 from sklearn.metrics import confusion_matrix, f1_score, classification_report
 import re, sys, string, argparse, os
 from transformers import get_linear_schedule_with_warmup
-
-nltk.download('punkt')
-nltk.download('stopwords')
-nltk.download('wordnet')
-nltk.download('maxent_treebank_pos_tagger')
-nltk.download('averaged_perceptron_tagger')
+from nltk import pos_tag
+nltk.download('all')
 
 
 # Set the device
@@ -74,14 +70,74 @@ def load_contrastive_model(model, model_name, contrastive_flag, path_to_contrast
     return model
 
 def text_cleaning(text):
+
+    # Remove block quotes
+    modified_text = ''
+    prev_line_block = False
+    for line in text.split('\n'):
+        if not line.strip().startswith('>'):
+            modified_text += line + '\n'
+            prev_line_block = False
+        else:
+            if prev_line_block is True:
+                continue
+            else:
+                modified_text += '[BLOCK QUOTE].' + '\n'
+                prev_line_block = True
+
+    # Replace new lines with space
+    modified_text = modified_text.replace("\n", " ")
+
+    # Remove URLs
+    modified_text = re.sub(r"http\S+", "[URL]", modified_text)
+
+    # Remove user mentions
+    modified_text = re.sub(' @[^\s]+', ' [USER]', modified_text)
+    if modified_text.startswith('@'):
+        modified_text = re.sub('@[^\s]+', '[USER]', modified_text)
+
+    # Remove HTML markup
+    modified_text = re.sub("(<.*?>)", " ", modified_text)
+
+    # Remove non-ASCII and digits
+    modified_text = re.sub("(\\W|\\d)", " ", modified_text)
+
+    # Lowercasing and stripping
+    modified_text = modified_text.lower().strip()
+
+    # Filter out non-text elements (URLs, user mentions, etc.)
     printable = set(string.printable)
-    text = ''.join(filter(lambda x: x in printable, text))
-    text = text.replace('\x00', ' ')  # remove nulls
-    text = text.replace('\r', ' ')
-    text = text.replace('\n', ' ')
-    text = text.lower()  # Lowercasing
-    text = text.strip()
-    return text
+    modified_text = ''.join(filter(lambda x: x in printable, modified_text))
+    modified_text = modified_text.replace('\x00', ' ')  # remove nulls
+    modified_text = modified_text.replace('\r', ' ')
+
+    # Lemmatize the text
+    tokens = word_tokenize(modified_text)
+    lemmatizer = WordNetLemmatizer()
+    pos_tags = pos_tag(tokens)
+    lemmatized_tokens = [lemmatizer.lemmatize(token, get_wordnet_pos(pos_tag)) for token, pos_tag in pos_tags]
+    lemmatized_text = ' '.join(lemmatized_tokens)
+
+    # Remove stopwords and extra whitespaces
+    stop_words = set(stopwords.words('english'))
+    filtered_tokens = [word for word in word_tokenize(lemmatized_text) if word.casefold() not in stop_words]
+    final_text = ' '.join(filtered_tokens)
+
+    return final_text
+
+def get_wordnet_pos(tag):
+    if tag.startswith('J'):
+        return wordnet.ADJ
+    elif tag.startswith('V'):
+        return wordnet.VERB
+    elif tag.startswith('N'):
+        return wordnet.NOUN
+    elif tag.startswith('R'):
+        return wordnet.ADV
+    else:
+        return wordnet.NOUN  # Assume nouns by default
+
+
 
 def prepare_data(df, tokenizer, max_len, col):
     class CSVDataset(Dataset):
@@ -97,7 +153,9 @@ def prepare_data(df, tokenizer, max_len, col):
         def __getitem__(self, idx):
             text = self.df.iloc[idx]["text"]
             text = text_cleaning(text)
-            label = self.df.iloc[idx][self.col]
+            label = 0
+            if self.df.iloc[idx]["label"] == self.col:
+                label = 1
 
             # Tokenize the text and pad the sequences
             tokens = self.tokenizer.tokenize(text)
@@ -197,27 +255,28 @@ def train_model(model, train_dataloader, epochs, delta, optimizer, scheduler, va
         if avg_train_loss < delta:
             break
 
-        if epoch == 0 or (val_loss < val_f1_score):
-            val_loss = val_f1_score 
-            print(confusion_matrix(true_labels, pred_flat), val_loss)
+        if epoch == 0 or (avg_test_loss < val_loss):
+            val_loss = avg_test_loss 
+            print(confusion_matrix(true_labels, pred_flat))
             print(classification_report(true_labels, pred_flat))
             my_array_pred = np.array(pred_flat)
             my_array_true = np.array(true_labels)
             df = pd.DataFrame({'Pred': my_array_pred, 'True': my_array_true})
             df.to_csv(output_file, index=False)
 
+
 def parse_arguments():
-    parser = argparse.ArgumentParser(description="Emotion Classification.")
-    parser.add_argument("--epoch", type=int, default=100, help="Number of epochs.")
+    parser = argparse.ArgumentParser(description="Incivility Classification.")
+    parser.add_argument("--epoch", type=int, default=30, help="Number of epochs.")
     parser.add_argument("--delta", type=float, default=0.01, help="Delta value.")
     parser.add_argument("--batch_size", type=int, default=128, help="Batch Size.")
-    parser.add_argument("--col", type=str, default="Anger", required=True, choices=["Anger", "Fear", "Love", "Joy", "Surprise", "Sadness"], help="Choose from Anger, Fear, Love, Joy, Sadness and Surprise.")
+    parser.add_argument("--col", type=str, default="civil", required=True, choices=["civil", "uncivil"], help="Choose from civil and uncivil.")
     parser.add_argument("--model_name", type=str, default='bert', required=True, choices=["bert", "roberta", "albert", "codebert"], help="Flag. Choose from bert, roberta, albert, codebert.")
     parser.add_argument("--contrastive_flag", type=int, default=0, help="Figurative language fine-tuned or not indicator.")
     parser.add_argument("--path_to_contrastive_weights", type=str, default=None, help="Path to contrastive learned model weights.")
     parser.add_argument("--output", type=str, default="output.csv", help="Output file name.")  # New argument for output file
-    parser.add_argument("--train_file", type=str, default="github-train.csv", required=True, help="Path to the training CSV file.")
-    parser.add_argument("--test_file", type=str, default="github-test.csv", required=True, help="Path to the test CSV file.")
+    parser.add_argument("--train_file", type=str, default="incivility-train.csv", required=True, help="Path to the training CSV file.")
+    parser.add_argument("--test_file", type=str, default="incivility-test.csv", required=True, help="Path to the test CSV file.")
     return parser.parse_args()
 
 
