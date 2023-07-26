@@ -28,7 +28,7 @@ def load_model(model_name, model_path):
     tokenizer = AutoTokenizer.from_pretrained(model_path)
     model = AutoModelForSequenceClassification.from_pretrained(
         model_path,
-        num_labels=2,
+        num_labels=5,
         output_attentions=False,
         output_hidden_states=False,
     )
@@ -143,10 +143,14 @@ def get_wordnet_pos(tag):
         return wordnet.NOUN  # Assume nouns by default
 
 
+
 # Define a mapping dictionary for labels
 label_mapping = {
-    "civil": 1,
-    "uncivil": 0
+    "P1": 0,
+    "P2": 1,
+    "P3": 2,
+    "P4": 3,
+    "P5": 4
 }
 
 
@@ -257,7 +261,7 @@ def train_model(model, train_dataloader, epochs, delta, optimizer, scheduler, va
         pred_flat = np.argmax(predictions, axis=1).flatten()
 
         # Calculate the validation accuracy of the model
-        val_f1_score = f1_score(true_labels, pred_flat, average='binary')
+        val_f1_score = f1_score(true_labels, pred_flat, average='micro')
 
         print(f"Epoch {epoch + 1}: Average training loss: {avg_train_loss:.4f}, Average validation loss: {avg_test_loss:.4f}, Validation f1-score: {val_f1_score:.4f}")
 
@@ -270,14 +274,14 @@ def train_model(model, train_dataloader, epochs, delta, optimizer, scheduler, va
             print(classification_report(true_labels, pred_flat))
             my_array_pred = np.array(pred_flat)
             my_array_true = np.array(true_labels)
-            df = pd.DataFrame({'Pred': my_array_pred, 'True': my_array_true})
-            df.to_csv(output_file, index=False)
+    df = pd.DataFrame({'Pred': my_array_pred, 'True': my_array_true})
+    df.to_csv(output_file, index=False)
 
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description="Incivility Classification.")
-    parser.add_argument("--epoch", type=int, default=30, help="Number of epochs.")
-    parser.add_argument("--delta", type=float, default=0.01, help="Delta value.")
+    parser.add_argument("--epoch", type=int, default=6, help="Number of epochs.")
+    parser.add_argument("--delta", type=float, default=0.1, help="Delta value.")
     parser.add_argument("--batch_size", type=int, default=128, help="Batch Size.")
     parser.add_argument("--model_name", type=str, default='bert', required=True, choices=["bert", "roberta", "albert", "codebert"], help="Flag. Choose from bert, roberta, albert, codebert.")
     parser.add_argument("--contrastive_flag", type=int, default=0, help="Figurative language fine-tuned or not indicator.")

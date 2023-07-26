@@ -59,4 +59,4 @@ Ensure you have the appropriate training data for emotion classification in the 
 
 - Ensure that your system has access to a CUDA-enabled GPU if you want to use GPU acceleration for training. The script automatically checks for GPU availability and uses it if available.
 
-- No text preprocessing is done as the original authors already provided a preprocessed dataset.
+- No major text preprocessing is done as the original authors already provided a preprocessed dataset.

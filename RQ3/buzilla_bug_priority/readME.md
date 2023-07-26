@@ -20,19 +20,19 @@ You can install the required dependencies using `pip`:
 
 ## Usage
 
-2. Make sure you have training and test data in CSV format. The CSV files should contain two columns: "text" (containing the text to classify) and "label" (containing the class labels). The label value should be "civil" and "uncivil". This is a binary classification.
+2. Make sure you have training and test data in CSV format. The CSV files should contain two columns: "text" (containing the text to classify) and "label" (containing the class labels). The label value should be P1, P2, P3, P4, and P5. This is a multiclass classification.
 
-3. Run the script `incivility_classification.py` with the following command:
+3. Run the script `bug_priority_classification.py` with the following command:
 
 
-`python incivility_classification.py --epoch EPOCH --delta DELTA --batch_size BATCH_SIZE --model_name MODEL_NAME --contrastive_flag CONTRASTIVE_FLAG --path_to_contrastive_weights PATH_TO_CONTRASTIVE_WEIGHTS --output OUTPUT_FILE --train_file TRAIN_CSV --test_file TEST_CSV`
+`python bug_priority_classification.py --epoch EPOCH --delta DELTA --batch_size BATCH_SIZE --model_name MODEL_NAME --contrastive_flag CONTRASTIVE_FLAG --path_to_contrastive_weights PATH_TO_CONTRASTIVE_WEIGHTS --output OUTPUT_FILE --train_file TRAIN_CSV --test_file TEST_CSV`
 
 ### Arguments:
 
 
 Replace the arguments in angle brackets with appropriate values:
-- `<EPOCH>`: Number of training epochs (default is 30).
-- `<DELTA>`: Delta value for early stopping based on training loss (default is 0.01).
+- `<EPOCH>`: Number of training epochs (default is 6).
+- `<DELTA>`: Delta value for early stopping based on training loss (default is 0.1).
 - `<BATCH_SIZE>`: Batch size for training (default is 128).
 - `<MODEL_NAME>`: Name of the pre-trained transformer model to use (choose from "bert", "roberta", "albert", "codebert").
 - `<CONTRASTIVE_FLAG>`: Flag indicating if a contrastive model is used (1 for True, 0 for False).
