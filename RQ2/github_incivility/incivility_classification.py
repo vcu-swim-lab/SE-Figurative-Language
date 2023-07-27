@@ -13,7 +13,9 @@ from sklearn.metrics import confusion_matrix, f1_score, classification_report
 import re, sys, string, argparse, os
 from transformers import get_linear_schedule_with_warmup
 from nltk import pos_tag
-nltk.download('all')
+
+# just run first time
+# nltk.download('all')
 
 
 # Set the device
@@ -281,7 +283,7 @@ def train_model(model, train_dataloader, epochs, delta, optimizer, scheduler, va
         pred_flat = np.argmax(predictions, axis=1).flatten()
 
         # Calculate the validation accuracy of the model
-        val_f1_score = f1_score(true_labels, pred_flat, average='binary')
+        val_f1_score = f1_score(true_labels, pred_flat, average='micro')
 
         print(f"Epoch {epoch + 1}: Average training loss: {avg_train_loss:.4f}, Average validation loss: {avg_test_loss:.4f}, Validation f1-score: {val_f1_score:.4f}")
 
