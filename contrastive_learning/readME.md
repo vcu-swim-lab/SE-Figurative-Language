@@ -51,7 +51,7 @@ Notes
 
 1. The code supports different pretrained models from the Hugging Face Transformers library (BERT, RoBERTa, ALBERT, CodeBERT).
 2. The InfoNCE loss is used for training, which helps improve text embeddings in a self-supervised manner.
-3. The training process will stop if the loss falls below a threshold (0.1) or after 30 epochs, whichever comes first.
+3. The training process will stop if the loss falls below a threshold (0.1) or after 10 epochs, whichever comes first.
 
 Please ensure that you have enough GPU memory to run the training process if using a GPU. The code will automatically use the GPU if available; otherwise, it will use the CPU for training.
 

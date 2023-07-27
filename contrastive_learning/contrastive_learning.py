@@ -199,7 +199,7 @@ def info_nce_loss(anchor_embeddings, positive_embeddings, negative_embeddings):
 
     return loss.mean()
 
-def train_model(model, dataloader, num_epochs=30, saved_file='model_and_optimizer.pt'):
+def train_model(model, dataloader, num_epochs=10, saved_file='model_and_optimizer.pt'):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model.to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=2e-5)
@@ -245,4 +245,4 @@ if __name__ == "__main__":
     dataframe = get_data(args.data_file)
     dataloader = prepare_dataset(dataframe, tokenizer, max_len=128)
 
-    train_model(model, dataloader, num_epochs=30, saved_file=saved_file)
+    train_model(model, dataloader, num_epochs=10, saved_file=saved_file)
