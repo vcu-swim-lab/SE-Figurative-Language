@@ -160,7 +160,7 @@ def text_cleaning(text):
     text = text.replace('\n', ' ')
     text = text.lower()  # Lowercasing
     text = text.strip()
-    text = filter_nontext(text)
+    # text = filter_nontext(text)
     text = text.strip()
 
     return text
