@@ -13,7 +13,7 @@ This repository contains the data and code to reproduce the experiments from our
 
     - Fig_Lan_Annotation.csv: contains the dataset of contrastive learning.
 
-    - readMe.md: contains the readMe on how to run contrastive_learning.py.
+    - ReadMe.md: contains the readMe on how to run contrastive_learning.py.
 
 - __/RQ1__: Folder that contains experiments for RQ1 on LLM figurative language interpretation using cosine similarity. 
 
@@ -21,7 +21,7 @@ This repository contains the data and code to reproduce the experiments from our
 
     - annotated-dataset.csv: the dataset of this experiment.
 
-    - readMe.md: contains the readMe on how to run run.py.
+    - ReadMe.md: contains the readMe on how to run run.py.
 
 - __/RQ2__: Folder that contains experiments for RQ2 on improving affect analysis via fine-tuning.
 
@@ -29,22 +29,22 @@ This repository contains the data and code to reproduce the experiments from our
     
         - emotion_classification.py: the script of emotion classification.
 
-	    - github-train.csv: the train dataset of this experiment.
+	- github-train.csv: the train dataset of this experiment.
 
-	    - github-test.csv: the test dataset of this experiment.
+	- github-test.csv: the test dataset of this experiment.
 
-	    - readMe.md: contains the readMe on how to run emotion_classification.py.
+	- ReadMe.md: contains the readMe on how to run emotion_classification.py.
 
 
     - __/github_incivility__: Folder that contains experiments for incivility classifcation.
     
         - incivility_classification.py: the script of incivility classification.
 
-	    - incivility-train.csv: the train dataset of this experiment.
+	- incivility-train.csv: the train dataset of this experiment.
 
-	    - incivility-test.csv: the test dataset of this experiment.
+	- incivility-test.csv: the test dataset of this experiment.
 
-	    - readMe.md: contains the readMe on how to run incivility_classification.py.
+	- ReadMe.md: contains the readMe on how to run incivility_classification.py.
 
 
 - __/RQ3__: Folder that contains experiments for RQ3 on bug report prioritization.
@@ -55,7 +55,7 @@ This repository contains the data and code to reproduce the experiments from our
 
     - priority-small-test.csv: the test dataset of this experiment.
 
-    - readMe.md: contains the readMe on how to run bug_priority_classification.py.
+    - ReadMe.md: contains the readMe on how to run bug_priority_classification.py.
 
 - requirements.txt: Python package dependencies.
 
