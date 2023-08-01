@@ -20,7 +20,7 @@ Install the required packages using the following command:
 
 ## Usage
 
-2. Make sure you have training and test data in CSV format. The CSV files should contain two columns: "text" (containing the text to classify) and "label" (containing the class labels). The label value should be Anger, Fear, Love, Joy, Surprise, Sadness. This is a multi-label dataset.
+1. Make sure you have training and test data in CSV format. The CSV files should contain two columns: "text" (containing the text to classify) and "label" (containing the class labels). The label value should be Anger, Fear, Love, Joy, Surprise, Sadness. This is a multi-label dataset.
 
 
 2. Run the emotion classification script with the following command:
@@ -58,5 +58,3 @@ Ensure you have the appropriate training data for emotion classification in the 
 ## Note
 
 - Ensure that your system has access to a CUDA-enabled GPU if you want to use GPU acceleration for training. The script automatically checks for GPU availability and uses it if available.
-
-- No major text preprocessing is done as the original authors already provided a preprocessed dataset.
