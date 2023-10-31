@@ -189,10 +189,10 @@ def prepare_data(df, tokenizer, max_len):
             return len(self.df)
 
         def __getitem__(self, idx):
-            text = self.df.iloc[idx]["text"]
+            text = self.df.iloc[idx]["Text"]
             text = text_cleaning(text)
             # Map the label to an integer using the label_mapping dictionary
-            label = label_mapping.get(self.df.iloc[idx]["label"], 0)
+            label = label_mapping.get(self.df.iloc[idx]["Label"], 0)
 
             # Tokenize the text and pad the sequences
             tokens = self.tokenizer.tokenize(text)
