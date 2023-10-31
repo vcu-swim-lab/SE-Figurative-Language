@@ -27,7 +27,7 @@ pip install torch transformers pandas nltk
 To run the training script, use the following command:
 
 ```bash
-python run.py <model_name> <data_file> <output_save_path>
+python contrastive_learning.py <model_name> <data_file> <output_save_path>
 ```
 
 
