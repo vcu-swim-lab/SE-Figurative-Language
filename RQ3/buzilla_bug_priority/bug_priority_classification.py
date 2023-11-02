@@ -13,7 +13,8 @@ from sklearn.metrics import confusion_matrix, f1_score, classification_report
 import re, sys, string, argparse, os
 from transformers import get_linear_schedule_with_warmup
 from nltk import pos_tag
-nltk.download('all')
+#nltk.download('all')
+import re
 
 
 # Set the device
@@ -46,6 +47,7 @@ def get_model_path(model_name):
     return model_paths[model_name]
 
 def load_contrastive_model(model, model_name, contrastive_flag, path_to_contrastive_weights):
+    print("Loading contrastive model...")
     if contrastive_flag == 1:
         # Load the model and optimizer
         checkpoint = torch.load(path_to_contrastive_weights)
@@ -77,90 +79,14 @@ def load_contrastive_model(model, model_name, contrastive_flag, path_to_contrast
 
 def text_cleaning(text):
 
-    def remove_block_quotes(text):
-        modified_text = ''
-        prev_line_block = False
-        for line in text.split('\n'):
-            if not line.strip().startswith('>'):
-                modified_text += line + '\n'
-                prev_line_block = False
-            else:
-                if prev_line_block is True:
-                    continue
-                else:
-                    modified_text += '[BLOCK QUOTE].' + '\n'
-                    prev_line_block = True
-        return modified_text
-
-
-    def remove_newlines(text):
-        # replace new lines with space
-        modified_text = text.replace("\n", " ")
-        return modified_text
-
-
-    def remove_extra_whitespaces(text):
-        return ' '.join(text.split())
-
-
-    def remove_triple_quotes(text):
-        occurrences = [m.start() for m in re.finditer('```', text)]
-        idx = len(occurrences)
-        if idx % 2 == 1:
-            text = text[:occurrences[idx - 1]]
-            idx = idx - 1
-        for i in range(0, idx, 2):
-            if idx > 0:
-                text = text[:occurrences[idx - 2]] + '[TRIPLE QUOTE].' + text[(occurrences[idx - 1] + 3):]
-                idx = idx - 2
-        return text
-
-
-    def remove_stacktrace(text):
-        st_regex = re.compile('at [a-zA-Z0-9\.<>$]+\(.+\)')
-        lines = list()
-        for line in text.split('\n'):
-            matches = st_regex.findall(line.strip())
-            if len(matches) == 0:
-                lines.append(line)
-            else:
-                for match in matches:
-                    line = line.replace(match, ' ')
-                lines.append(line.strip(' \t'))
-
-        lines = '\n'.join(lines)
-        # hack to get rid of multiple spaces in the text
-        # lines = ' '.join(lines.split())
-        return lines
-
-
-    def remove_url(text):
-        text = re.sub(r"http\S+", "[URL]", text)
-        return text
-
-
-    def remove_usermention(text):
-        text = re.sub(' @[^\s]+', ' [USER]', text)
-        if text.startswith('@'):
-            text = re.sub('@[^\s]+', '[USER]', text)
-        return text
-
-    def filter_nontext(text):
-        text = remove_url(text)
-        text = remove_usermention(text)
-        text = remove_block_quotes(text)
-        text = remove_stacktrace(text)
-        text = remove_triple_quotes(text)
-        return text.strip()
-
     printable = set(string.printable)
     text = ''.join(filter(lambda x: x in printable, text))
+    text = str(text)
     text = text.replace('\x00', ' ')  # remove nulls
     text = text.replace('\r', ' ')
     text = text.replace('\n', ' ')
     text = text.lower()  # Lowercasing
-    text = text.strip()
-    # text = filter_nontext(text)
+
     text = text.strip()
 
     return text
@@ -305,7 +231,7 @@ def train_model(model, train_dataloader, epochs, delta, optimizer, scheduler, va
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description="Bug Priority Classification.")
-    parser.add_argument("--epoch", type=int, default=6, help="Number of epochs.")
+    parser.add_argument("--epoch", type=int, default=5, help="Number of epochs.")
     parser.add_argument("--delta", type=float, default=0.1, help="Delta value.")
     parser.add_argument("--batch_size", type=int, default=128, help="Batch Size.")
     parser.add_argument("--model_name", type=str, default='bert', required=True, choices=["bert", "roberta", "albert", "codebert"], help="Flag. Choose from bert, roberta, albert, codebert.")

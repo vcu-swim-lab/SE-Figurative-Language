@@ -9,7 +9,7 @@ import sys, re, nltk, argparse
 from nltk.corpus import stopwords, wordnet
 from nltk.tokenize import word_tokenize
 
-nltk.download('all')
+#nltk.download('all')
 
 
 def soft_decay(embeddings):
@@ -128,16 +128,17 @@ def text_cleaning(text):
 
 def load_data(datapath, data_type):
     dataframe = pd.read_csv(datapath)
-    dataframe = dataframe.drop(['Id', 'Fig_Exp'], axis=1)
-
-    na_free = dataframe.dropna()
-    dataframe = dataframe[np.invert(dataframe.index.isin(na_free.index))]
+    dataframe = dataframe.drop(['idx', 'Fig_Exp'], axis=1)
 
     if data_type == "SE":
+        na_free = dataframe.dropna()
+        dataframe = dataframe[np.invert(dataframe.index.isin(na_free.index))]
         dataframe = dataframe.drop(['General'], axis=1)
         dataframe = dataframe.dropna()
         dataframe = dataframe.drop(['SE'], axis=1)
     elif data_type == "General":
+        na_free = dataframe.dropna()
+        dataframe = dataframe[np.invert(dataframe.index.isin(na_free.index))]
         dataframe = dataframe.drop(['SE'], axis=1)
         dataframe = dataframe.dropna()
         dataframe = dataframe.drop(['General'], axis=1)
@@ -280,7 +281,8 @@ def main(datapath, modelpath, data_type):
             count_a = count_a + 1
         else:
             count_b = count_b + 1
-
+    tc = count_b+count_a
+    print(tc)
     print("Similarity percentage:", count_a / (count_a + count_b))
 
     effect_size = compute_effect_size(group_b, group_a)
