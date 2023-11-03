@@ -16,7 +16,6 @@ from nltk import pos_tag
 #nltk.download('all')
 import re
 
-
 # Set the device
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -91,9 +90,6 @@ def text_cleaning(text):
 
     return text
 
-
-
-
 # Define a mapping dictionary for labels
 label_mapping = {
     "P1": 0,
@@ -148,7 +144,7 @@ def train_model(model, train_dataloader, epochs, delta, optimizer, scheduler, va
             b_input_ids = b_input_ids.to(device)
             b_labels = b_labels.to(device)
 
-            model.zero_grad()        
+            optimizer.zero_grad()        
 
             # Forward pass
             loss, logits = model(b_input_ids, labels=b_labels)[:2]
@@ -218,8 +214,8 @@ def train_model(model, train_dataloader, epochs, delta, optimizer, scheduler, va
         if avg_train_loss < delta:
             break
 
-        if epoch == 0 or (f1 <= 0.0 and val_f1_score > 0.0) or (avg_test_loss < val_loss):
-            val_loss = avg_test_loss 
+        if avg_test_loss < loss_val:
+            loss_val = avg_test_loss 
             f1 = val_f1_score
             print(confusion_matrix(true_labels, pred_flat))
             print(classification_report(true_labels, pred_flat))
