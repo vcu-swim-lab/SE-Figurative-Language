@@ -33,14 +33,14 @@ python contrastive_learning.py <model_name> <data_file> <output_save_path>
 
 - `<model_name>`: Pretrained model name. Choose from "bert", "roberta", "albert", or "codebert".
 - `<data_file>`: Path to the CSV file containing the training data.
-- `<output_save_path>`: Path to save the trained model and optimizer.
+- `<output_save_path>`: Folder path to save the trained model and optimizer.
 
 
 Example
 -------
 
 ```
-python train_model.py bert dataset/Fig_Lan_Annotation.csv output
+python train_model.py bert Fig_Lan_Annotation.csv output
 ```
 
 
