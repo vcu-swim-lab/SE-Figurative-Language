@@ -55,7 +55,3 @@ Notes
 
 Please ensure that you have enough GPU memory to run the training process if using a GPU. The code will automatically use the GPU if available; otherwise, it will use the CPU for training.
 
-Note: Make sure to customize the CSV file with your data before running the training script.
-
-Happy training!
-
